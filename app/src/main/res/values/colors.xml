@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="color_primary">#4caf50</color>
+    <color name="notification_text_color">#ffffffff</color>
+    <color name="disposition_frame_bg_color">#c8595757</color>
+    <color name="disposition_saved_frame_bg_color">#c84a5b7f</color>
+    <color name="disposition_locked_frame_bg_color">#c87f4a4a</color>
+
 </resources>

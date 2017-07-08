@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015 Jorge Ruesga
+     Copyright (C) 2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources>
+
+    <string-array name="portrait_disposition_templates" translatable="false">
+        <item>0x0:2x1|0x2:1x3|0x4:3x6|2x2:3x3|3x0:3x0|3x1:3x1</item>
+        <item>0x0:1x1|0x2:1x3|0x4:3x6|2x0:3x1|2x2:3x3</item>
+        <item>0x0:2x1|0x2:1x3|0x4:3x6|2x2:3x3|3x0:3x1</item>
+        <item>0x0:0x1|0x2:0x4|0x5:0x6|1x0:2x1|1x2:2x4|1x5:2x6|3x0:3x1|3x2:3x4|3x5:3x6</item>
+        <item>0x0:0x0|0x1:3x5|0x6:0x6|1x0:1x0|1x6:1x6|2x0:2x0|2x6:2x6|3x0:3x0|3x6:3x6</item>
+        <item>0x0:3x2|0x3:0x3|0x4:3x6|1x3:1x3|2x3:2x3|3x3:3x3</item>
+        <item>0x0:3x2|0x3:0x3|0x4:3x6|1x3:1x3|2x3:2x3|3x3:3x3</item>
+        <item>0x0:1x2|0x3:0x3|0x4:1x6|1x3:1x3|2x0:3x1|2x2:2x2|2x3:3x6|3x2:3x2</item>
+        <item>0x0:3x3|0x4:3x6</item>
+        <item>0x0:3x6</item>
+        <item>0x0:1x3|0x4:1x6|2x0:3x2|2x3:3x6</item>
+        <item>0x0:0x0|0x1:0x1|0x2:0x2|0x3:0x3|0x4:2x6|1x0:3x2|1x3:1x3|2x3:2x3|3x3:3x3|3x4:3x4|3x5:3x5|3x6:3x6</item>
+        <item>0x0:0x0|0x1:0x1|0x2:0x2|0x3:0x3|0x4:0x4|0x5:0x5|0x6:0x6|1x0:2x2|1x3:1x3|1x4:2x6|2x3:2x3|3x0:3x0|3x1:3x1|3x2:3x2|3x3:3x3|3x4:3x4|3x5:3x5|3x6:3x6</item>
+        <item>0x0:1x1|0x2:1x3|0x4:0x4|0x5:0x5|0x6:0x6|1x4:2x6|2x0:3x1|2x2:3x3|3x4:3x4|3x5:3x5|3x6:3x6</item>
+        <item>0x0:1x1|0x2:1x3|0x4:2x6|2x0:3x1|2x2:3x3|3x4:3x4|3x5:3x5|3x6:3x6</item>
+        <item>0x0:0x0|0x1:0x1|0x2:1x3|0x4:3x6|1x0:1x0|1x1:1x1|2x0:3x1|2x2:2x2|2x3:2x3|3x2:3x2|3x3:3x3</item>
+        <item>0x0:1x1|0x2:3x4|0x5:1x6|2x0:3x1|2x5:3x6</item>
+        <item>0x0:1x0|0x1:3x5|0x6:1x6|2x0:3x0|2x6:3x6</item>
+        <item>0x0:3x1|0x2:3x4|0x5:3x6</item>
+        <item>0x0:2x1|0x2:3x4|0x5:0x6|1x5:3x6|3x0:3x1</item>
+    </string-array>
+
+</resources>

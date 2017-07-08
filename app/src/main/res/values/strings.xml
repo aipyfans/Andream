@@ -1,3 +1,24 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Andream</string>
+
+
+
+    <!-- Saved dispositions -->
+    <string name="saved_dispositions_save_success">Successfully saved</string>
+    <string name="saved_dispositions_save_exists">Another disposition with the same layout exists</string>
+    <string name="saved_dispositions_delete_success">Successfully deleted</string>
+
+    <string name="pref_disposition_saved">Saved <xliff:g id="number_of_saved">%1$s</xliff:g> de <xliff:g id="total_of_saved">%2$s</xliff:g></string>
+    <string name="pref_disposition_template">Template <xliff:g id="number_of_template">%1$s</xliff:g> of <xliff:g id="total_of_templates">%2$s</xliff:g></string>
+
+    <!-- Frame settings -->
+    <string name="frame_settings_dialog_title">Frame settings</string>
+    <string name="frame_settings_flag_background">Background</string>
+    <string name="frame_settings_flag_transition">Transition</string>
+    <string name="frame_settings_flag_effect">Effect</string>
+    <string name="frame_settings_flag_border">Border</string>
+
+    <string name="pref_disposition_description">长按一个画框并拖放其边界。左右滑动以显示已定义的模板</string>
+    <string name="pref_disposition_unable_delete_advise">无法删除选定的画框</string>
+
 </resources>

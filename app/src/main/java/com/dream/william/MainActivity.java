@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.view.notification.NotificationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_notification:
                 startActivity(new Intent(this, NotificationActivity.class));
                 break;
+
+            case R.id.btn_photo_phase:
+                startActivity(new Intent(this, PhaseActivity.class));
+                break;
+
         }
     }
 
