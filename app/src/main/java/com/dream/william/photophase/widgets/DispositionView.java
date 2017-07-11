@@ -73,6 +73,7 @@ public class DispositionView extends RelativeLayout
          * @param v The frame view selected
          */
         void onFrameSelectedListener(View v);
+
         /**
          * Invoked when a frame is unselected
          */
@@ -107,7 +108,7 @@ public class DispositionView extends RelativeLayout
      * Constructor of <code>DispositionView</code>.
      *
      * @param context The current context
-     * @param attrs The attributes of the XML tag that is inflating the view.
+     * @param attrs   The attributes of the XML tag that is inflating the view.
      */
     public DispositionView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -117,12 +118,12 @@ public class DispositionView extends RelativeLayout
     /**
      * Constructor of <code>DispositionView</code>.
      *
-     * @param context The current context
-     * @param attrs The attributes of the XML tag that is inflating the view.
+     * @param context  The current context
+     * @param attrs    The attributes of the XML tag that is inflating the view.
      * @param defStyle The default style to apply to this view. If 0, no style
-     *        will be applied (beyond what is included in the theme). This may
-     *        either be an attribute resource, whose value will be retrieved
-     *        from the current theme, or an explicit style resource.
+     *                 will be applied (beyond what is included in the theme). This may
+     *                 either be an attribute resource, whose value will be retrieved
+     *                 from the current theme, or an explicit style resource.
      */
     public DispositionView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -133,7 +134,7 @@ public class DispositionView extends RelativeLayout
      * Initialize the view
      */
     private void init() {
-        mInternalPadding = (int)getResources().getDimension(R.dimen.disposition_frame_padding);
+        mInternalPadding = (int) getResources().getDimension(R.dimen.disposition_frame_padding);
     }
 
     /**
@@ -149,11 +150,15 @@ public class DispositionView extends RelativeLayout
      * Method that sets the disposition to draw on this view
      *
      * @param dispositions The dispositions to draw
-     * @param animate If should animate the view
+     * @param animate      If should animate the view
      */
     public void setDispositions(Dispositions dispositions, boolean animate) {
-        setDispositions(dispositions.getDispositions(), dispositions.getCols(),
-                dispositions.getRows(), animate);
+        setDispositions(
+                dispositions.getDispositions(),
+                dispositions.getCols(),
+                dispositions.getRows(),
+                animate
+        );
     }
 
     public boolean isEditable() {
@@ -176,12 +181,11 @@ public class DispositionView extends RelativeLayout
      * Method that sets the disposition to draw on this view
      *
      * @param dispositions The dispositions to draw
-     * @param cols The number of columns
-     * @param rows The number of rows
-     * @param animate If should animate the view
+     * @param cols         The number of columns
+     * @param rows         The number of rows
+     * @param animate      If should animate the view
      */
-    public void setDispositions(List<Disposition> dispositions, int cols, int rows,
-            boolean animate) {
+    public void setDispositions(List<Disposition> dispositions, int cols, int rows, boolean animate) {
         mDispositions = dispositions;
         mCols = cols;
         mRows = rows;
@@ -347,10 +351,12 @@ public class DispositionView extends RelativeLayout
                 public void onAnimationStart(Animator animation) {
                     // Ignore
                 }
+
                 @Override
                 public void onAnimationRepeat(Animator animation) {
                     // Ignore
                 }
+
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     finishDeleteAnimation(targetDisposition);
@@ -391,11 +397,10 @@ public class DispositionView extends RelativeLayout
      * @return v The new view
      */
     private View createFrame(Disposition disposition, Rect r, boolean animate) {
-        int padding = (int)getResources().getDimension(R.dimen.disposition_frame_padding);
+        int padding = (int) getResources().getDimension(R.dimen.disposition_frame_padding);
 
         final FrameLayout v = new FrameLayout(getContext());
-        ViewGroup.LayoutParams params =
-                new LayoutParams(r.width() - padding, r.height() - padding);
+        ViewGroup.LayoutParams params = new LayoutParams(r.width() - padding, r.height() - padding);
         v.setX(r.left + padding);
         v.setY(r.top + padding);
         if (mEditable) {
@@ -411,15 +416,14 @@ public class DispositionView extends RelativeLayout
         image.setScaleType(ScaleType.CENTER);
         image.setBackgroundColor(ContextCompat.getColor(getContext(), mResizeFrame == null
                 ? mSaved
-                    ? R.color.disposition_saved_frame_bg_color
-                    : R.color.disposition_locked_frame_bg_color
+                ? R.color.disposition_saved_frame_bg_color
+                : R.color.disposition_locked_frame_bg_color
                 : R.color.disposition_frame_bg_color));
         v.addView(image);
 
         // Flags toolbar
         final LinearLayout toolbar = new LinearLayout(getContext());
-        FrameLayout.LayoutParams toolbarParams = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams toolbarParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         toolbarParams.gravity = Gravity.BOTTOM | Gravity.START;
         v.addView(toolbar, toolbarParams);
 
@@ -506,9 +510,9 @@ public class DispositionView extends RelativeLayout
     @Override
     public boolean onLongClick(View v) {
         if (mResizeFrame != null && selectTarget(v)) {
-            performHapticFeedback(HapticFeedbackConstants.LONG_PRESS,
-                    HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
-                            | HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING);
+            performHapticFeedback(
+                    HapticFeedbackConstants.LONG_PRESS,
+                    HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING | HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING);
         }
         return true;
     }
@@ -517,10 +521,11 @@ public class DispositionView extends RelativeLayout
     public void onStartResize(int mode) {
         if (mResizeFrame == null) return;
         mOldResizeFrameLocation = new Rect(
-                                        mResizeFrame.getLeft(),
-                                        mResizeFrame.getTop(),
-                                        mResizeFrame.getRight(),
-                                        mResizeFrame.getBottom());
+                mResizeFrame.getLeft(),
+                mResizeFrame.getTop(),
+                mResizeFrame.getRight(),
+                mResizeFrame.getBottom()
+        );
     }
 
     @Override
@@ -534,13 +539,12 @@ public class DispositionView extends RelativeLayout
         int minWidth = (w / mCols) + (w / mCols) / 2;
         int minHeight = (h / mRows) + (h / mRows) / 2;
 
-        FrameLayout.LayoutParams params =
-                (FrameLayout.LayoutParams)mResizeFrame.getLayoutParams();
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mResizeFrame.getLayoutParams();
         switch (mode) {
             case Gravity.LEFT:
                 float newpos = mResizeFrame.getX() + delta;
                 if ((delta < 0 && newpos < (getPaddingLeft() * -1)) ||
-                    (delta > 0 && newpos > (mResizeFrame.getX() + params.width - minWidth))) {
+                        (delta > 0 && newpos > (mResizeFrame.getX() + params.width - minWidth))) {
                     return;
                 }
                 mResizeFrame.setX(newpos);
@@ -548,7 +552,7 @@ public class DispositionView extends RelativeLayout
                 break;
             case Gravity.RIGHT:
                 if ((delta < 0 && ((params.width + delta) < minWidth)) ||
-                    (delta > 0 && (mResizeFrame.getX() + delta + params.width) > (getPaddingLeft() + getMeasuredWidth()))) {
+                        (delta > 0 && (mResizeFrame.getX() + delta + params.width) > (getPaddingLeft() + getMeasuredWidth()))) {
                     return;
                 }
                 params.width += delta;
@@ -556,7 +560,7 @@ public class DispositionView extends RelativeLayout
             case Gravity.TOP:
                 newpos = mResizeFrame.getY() + delta;
                 if ((delta < 0 && newpos < (getPaddingTop() * -1)) ||
-                    (delta > 0 && newpos > (mResizeFrame.getY() + params.height - minHeight))) {
+                        (delta > 0 && newpos > (mResizeFrame.getY() + params.height - minHeight))) {
                     return;
                 }
                 mResizeFrame.setY(newpos);
@@ -564,7 +568,7 @@ public class DispositionView extends RelativeLayout
                 break;
             case Gravity.BOTTOM:
                 if ((delta < 0 && ((params.height + delta) < minHeight)) ||
-                    (delta > 0 && (mResizeFrame.getY() + delta + params.height) > (getPaddingTop() + getMeasuredHeight()))) {
+                        (delta > 0 && (mResizeFrame.getY() + delta + params.height) > (getPaddingTop() + getMeasuredHeight()))) {
                     return;
                 }
                 params.height += delta;
@@ -630,9 +634,9 @@ public class DispositionView extends RelativeLayout
         for (int i = 0; i < count; i++) {
             View v = getChildAt(i);
             if (v.getX() < (mResizeFrame.getX() + (mResizeFrame.getWidth() / 2)) &&
-                (v.getX() + v.getWidth()) > (mResizeFrame.getX() + (mResizeFrame.getWidth() / 2)) &&
-                v.getY() < (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2)) &&
-                (v.getY() + v.getHeight()) > (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2))) {
+                    (v.getX() + v.getWidth()) > (mResizeFrame.getX() + (mResizeFrame.getWidth() / 2)) &&
+                    v.getY() < (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2)) &&
+                    (v.getY() + v.getHeight()) > (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2))) {
                 return v;
             }
         }
@@ -649,9 +653,9 @@ public class DispositionView extends RelativeLayout
         for (int i = 0; i < count; i++) {
             View v = getChildAt(i);
             if (v.getX() < (r.left + (r.width() / 2)) &&
-                (v.getX() + v.getWidth()) > (r.left + (r.width() / 2)) &&
-                v.getY() < (r.top + (r.height() / 2)) &&
-                (v.getY() + v.getHeight()) > (r.top + (r.height() / 2))) {
+                    (v.getX() + v.getWidth()) > (r.left + (r.width() / 2)) &&
+                    v.getY() < (r.top + (r.height() / 2)) &&
+                    (v.getY() + v.getHeight()) > (r.top + (r.height() / 2))) {
                 return v;
             }
         }
@@ -671,8 +675,7 @@ public class DispositionView extends RelativeLayout
         // Show the resize frame view just in place of the current clicked view
 
         mResizeFrame.hide();
-        FrameLayout.LayoutParams frameParams =
-                (FrameLayout.LayoutParams)mResizeFrame.getLayoutParams();
+        FrameLayout.LayoutParams frameParams = (FrameLayout.LayoutParams) mResizeFrame.getLayoutParams();
         int padding = mInternalPadding + mResizeFrame.getNeededPadding();
         frameParams.width = v.getWidth() + (padding * 2);
         frameParams.height = v.getHeight() + (padding * 2);
@@ -777,8 +780,8 @@ public class DispositionView extends RelativeLayout
             for (Disposition d : mDispositions) {
                 if (d.compareTo(disposition) != 0) {
                     if ((d.x + d.w) == disposition.x &&
-                        (d.y >= disposition.y) &&
-                        ((d.y + d.h) <= (disposition.y + disposition.h))) {
+                            (d.y >= disposition.y) &&
+                            ((d.y + d.h) <= (disposition.y + disposition.h))) {
                         dispositions.add(d);
                     }
                 }
@@ -798,8 +801,8 @@ public class DispositionView extends RelativeLayout
             for (Disposition d : mDispositions) {
                 if (d.compareTo(disposition) != 0) {
                     if ((d.y + d.h) == disposition.y &&
-                        (d.x >= disposition.x) &&
-                        ((d.x + d.w) <= (disposition.x + disposition.w))) {
+                            (d.x >= disposition.x) &&
+                            ((d.x + d.w) <= (disposition.x + disposition.w))) {
                         dispositions.add(d);
                     }
                 }
@@ -819,8 +822,8 @@ public class DispositionView extends RelativeLayout
             for (Disposition d : mDispositions) {
                 if (d.compareTo(disposition) != 0) {
                     if ((d.x) == (disposition.x + disposition.w) &&
-                        (d.y >= disposition.y) &&
-                        ((d.y + d.h) <= (disposition.y + disposition.h))) {
+                            (d.y >= disposition.y) &&
+                            ((d.y + d.h) <= (disposition.y + disposition.h))) {
                         dispositions.add(d);
                     }
                 }
@@ -840,8 +843,8 @@ public class DispositionView extends RelativeLayout
             for (Disposition d : mDispositions) {
                 if (d.compareTo(disposition) != 0) {
                     if ((d.y) == (disposition.y + disposition.h) &&
-                        (d.x >= disposition.x) &&
-                        ((d.x + d.w) <= (disposition.x + disposition.w))) {
+                            (d.x >= disposition.x) &&
+                            ((d.x + d.w) <= (disposition.x + disposition.w))) {
                         dispositions.add(d);
                     }
                 }
@@ -897,10 +900,12 @@ public class DispositionView extends RelativeLayout
         final SwitchCompat transition = (SwitchCompat) dialogView.findViewById(R.id.flag_transition);
         final SwitchCompat effect = (SwitchCompat) dialogView.findViewById(R.id.flag_effect);
         final SwitchCompat border = (SwitchCompat) dialogView.findViewById(R.id.flag_border);
+
         background.setChecked(disposition.hasFlag(Disposition.BACKGROUND_FLAG));
         transition.setChecked(disposition.hasFlag(Disposition.TRANSITION_FLAG));
         effect.setChecked(disposition.hasFlag(Disposition.EFFECT_FLAG));
         border.setChecked(disposition.hasFlag(Disposition.BORDER_FLAG));
+
         transition.setEnabled(background.isChecked());
         effect.setEnabled(background.isChecked());
         border.setEnabled(background.isChecked());
@@ -924,16 +929,19 @@ public class DispositionView extends RelativeLayout
                 } else {
                     disposition.removeFlag(Disposition.BACKGROUND_FLAG);
                 }
+
                 if (transition.isChecked()) {
                     disposition.addFlag(Disposition.TRANSITION_FLAG);
                 } else {
                     disposition.removeFlag(Disposition.TRANSITION_FLAG);
                 }
+
                 if (effect.isChecked()) {
                     disposition.addFlag(Disposition.EFFECT_FLAG);
                 } else {
                     disposition.removeFlag(Disposition.EFFECT_FLAG);
                 }
+
                 if (border.isChecked()) {
                     disposition.addFlag(Disposition.BORDER_FLAG);
                 } else {

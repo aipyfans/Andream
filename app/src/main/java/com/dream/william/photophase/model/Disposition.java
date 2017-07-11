@@ -42,18 +42,22 @@ public class Disposition implements Comparable<Disposition> {
      * Column
      */
     public int x;
+
     /**
      * Row
      */
     public int y;
+
     /**
      * Columns width
      */
     public int w;
+
     /**
      * Rows height
      */
     public int h;
+
     /**
      * Flags
      */
@@ -124,8 +128,7 @@ public class Disposition implements Comparable<Disposition> {
      */
     @Override
     public int compareTo(@NonNull Disposition another) {
-        if (x == another.x && y == another.y && w == another.w
-                && h == another.h && flags == another.flags) {
+        if (x == another.x && y == another.y && w == another.w && h == another.h && flags == another.flags) {
             return 0;
         }
         if (x < another.x) {

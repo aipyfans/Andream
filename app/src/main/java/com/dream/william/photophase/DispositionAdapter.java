@@ -36,7 +36,9 @@ import java.util.List;
 public class DispositionAdapter extends PagerAdapter {
 
     private final List<Dispositions> mDispositions;
+
     private final ResizeFrame mResizeFrame;
+
     private final DispositionView.OnFrameSelectedListener mCallback;
 
     private final SparseArray<DispositionView> mCurrentViews;
@@ -47,24 +49,25 @@ public class DispositionAdapter extends PagerAdapter {
 
     private Dispositions mEditingDispositions;
 
+
     /**
      * Constructor of <code>DispositionAdapter</code>.
      *
-     * @param ctx The current context
+     * @param ctx          The current context
      * @param dispositions An array with all dispositions
-     * @param resizeFrame The resize frame
-     * @param callback The callback where return selection events
+     * @param resizeFrame  The resize frame
+     * @param callback     The callback where return selection events
      */
-    public DispositionAdapter(Context ctx, List<Dispositions> dispositions,
-            ResizeFrame resizeFrame, DispositionView.OnFrameSelectedListener callback) {
+    public DispositionAdapter(Context ctx, List<Dispositions> dispositions, ResizeFrame resizeFrame, DispositionView.OnFrameSelectedListener callback) {
         super();
         mDispositions = dispositions;
         mResizeFrame = resizeFrame;
         mCallback = callback;
         mFirstAnimation = true;
-        mInflater = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mCurrentViews = new SparseArray<>();
     }
+
 
     public List<Dispositions> getDispositions() {
         return mDispositions;
@@ -76,6 +79,7 @@ public class DispositionAdapter extends PagerAdapter {
         notifyDataSetChanged();
     }
 
+
     public void deleteUserDisposition(int position) {
         Dispositions d = mDispositions.get(position);
         if (d.getType() == Dispositions.TYPE_SAVED) {
@@ -83,6 +87,7 @@ public class DispositionAdapter extends PagerAdapter {
             notifyDataSetChanged();
         }
     }
+
 
     /**
      * {@inheritDoc}
@@ -92,19 +97,21 @@ public class DispositionAdapter extends PagerAdapter {
         return mDispositions.size();
     }
 
+
     /**
      * {@inheritDoc}
      */
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
-        final DispositionView view = (DispositionView)mInflater.inflate(
-                R.layout.phase_disposition_view, container, false);
+        final DispositionView view = (DispositionView) mInflater.inflate(R.layout.phase_disposition_view, container, false);
         view.setEditable(position == 0);
         view.setSaved(mDispositions.get(position).getType() == Dispositions.TYPE_SAVED);
+
         if (position == 0) {
             view.setResizeFrame(mResizeFrame);
             view.setOnFrameSelectedListener(mCallback);
         }
+
         view.post(new Runnable() {
             @Override
             public void run() {
@@ -112,14 +119,16 @@ public class DispositionAdapter extends PagerAdapter {
                 if (position == 0 && mEditingDispositions != null) {
                     dispositions = mEditingDispositions;
                 }
-                view.setDispositions(dispositions, position == 0 &&  mFirstAnimation);
+                view.setDispositions(dispositions, position == 0 && mFirstAnimation);
                 mFirstAnimation = false;
             }
         });
+
         container.addView(view, 0);
         mCurrentViews.put(position, view);
         return view;
     }
+
 
     /**
      * {@inheritDoc}
@@ -127,15 +136,12 @@ public class DispositionAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         if (position == 0) {
-            mEditingDispositions = new Dispositions(
-                    Dispositions.TYPE_CURRENT,
-                    mCurrentViews.get(position).getDispositions(),
-                    mDispositions.get(position).getRows(),
-                    mDispositions.get(position).getCols());
+            mEditingDispositions = new Dispositions(Dispositions.TYPE_CURRENT, mCurrentViews.get(position).getDispositions(), mDispositions.get(position).getRows(), mDispositions.get(position).getCols());
         }
         mCurrentViews.remove(position);
         container.removeView((View) object);
     }
+
 
     /**
      * Method that returns the current view
@@ -147,6 +153,7 @@ public class DispositionAdapter extends PagerAdapter {
         return mCurrentViews.get(position);
     }
 
+
     /**
      * {@inheritDoc}
      */
@@ -154,6 +161,7 @@ public class DispositionAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return view == object || view == mResizeFrame;
     }
+
 
     public int getCountOfSavedDispositions() {
         int count = 0;
@@ -166,4 +174,5 @@ public class DispositionAdapter extends PagerAdapter {
         }
         return count;
     }
+
 }

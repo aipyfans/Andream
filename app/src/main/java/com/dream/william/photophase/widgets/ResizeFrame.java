@@ -155,8 +155,7 @@ public class ResizeFrame extends FrameLayout {
         mLeftHandle.setImageResource(R.drawable.resize_frame_handle);
         mLeftHandle.setColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
         mLeftHandle.setTag(Gravity.LEFT);
-        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
-                Gravity.LEFT | Gravity.CENTER_VERTICAL);
+        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,Gravity.LEFT | Gravity.CENTER_VERTICAL);
         lp.leftMargin = handleMargin;
         addView(mLeftHandle, lp);
 
@@ -164,8 +163,7 @@ public class ResizeFrame extends FrameLayout {
         mRightHandle.setImageResource(R.drawable.resize_frame_handle);
         mRightHandle.setColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
         mRightHandle.setTag(Gravity.RIGHT);
-        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
-                Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,Gravity.RIGHT | Gravity.CENTER_VERTICAL);
         lp.rightMargin = handleMargin;
         addView(mRightHandle, lp);
 
@@ -173,8 +171,7 @@ public class ResizeFrame extends FrameLayout {
         mTopHandle.setImageResource(R.drawable.resize_frame_handle);
         mTopHandle.setColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
         mTopHandle.setTag(Gravity.TOP);
-        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
-                Gravity.CENTER_HORIZONTAL | Gravity.TOP);
+        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,Gravity.CENTER_HORIZONTAL | Gravity.TOP);
         lp.topMargin = handleMargin;
         addView(mTopHandle, lp);
 
@@ -182,8 +179,7 @@ public class ResizeFrame extends FrameLayout {
         mBottomHandle.setImageResource(R.drawable.resize_frame_handle);
         mBottomHandle.setColorFilter(overlayColor, PorterDuff.Mode.SRC_ATOP);
         mBottomHandle.setTag(Gravity.BOTTOM);
-        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
-                Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+        lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
         lp.bottomMargin = handleMargin;
         addView(mBottomHandle, lp);
     }

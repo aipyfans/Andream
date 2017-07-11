@@ -29,20 +29,18 @@ import java.util.Set;
 public class PhaseActivity extends AppCompatActivity implements DispositionView.OnFrameSelectedListener, ViewPager.OnPageChangeListener {
 
     public static final String DEFAULT_PORTRAIT_DISPOSITION = "0x0:2x1|0x2:1x3|0x4:3x6|2x2:3x3|3x0:3x0|3x1:3x1";
+    private static final String PREFERENCES_FILE = "com.hylaa";
 
     private static final int DEFAULT_COLS = 4;
     private static final int DEFAULT_ROWS = 7;
 
-    private static String PREFERENCES_FILE = "com.hylaa";
-
+    private TextView mAdvise;
+    private ResizeFrame mResizeFrame;
     private ViewPager mPager;
     private DispositionAdapter mAdapter;
-    private ResizeFrame mResizeFrame;
-    private TextView mAdvise;
+    private DispositionView mCurrentDispositionView;
 
     private int mAdviseLines = -1;
-
-    private DispositionView mCurrentDispositionView;
     private int mCurrentPage;
     private int mNumberOfTemplates;
     private boolean mOkPressed;
@@ -50,62 +48,6 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
     private List<Disposition> dispositions;
     private List<List<Disposition>> userDispositions = null;
 
-    public static List<List<Disposition>> getPortraitUserDispositions(Context context) {
-        return getUserDispositions(context, "ui_layout_portrait_saved_disposition");
-    }
-
-    private static SharedPreferences getSharedPreferences(Context context) {
-        return context.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
-    }
-
-    private static List<List<Disposition>> getUserDispositions(Context context, String key) {
-        Set<String> savedDispositions = getSharedPreferences(context).getStringSet(key, null);
-        if (savedDispositions == null) {
-            return new ArrayList<>();
-        }
-
-        List<String> ordered = new ArrayList<>(savedDispositions);
-        Collections.sort(ordered, new Comparator<String>() {
-            @Override
-            public int compare(String lhs, String rhs) {
-                Integer lid = Integer.valueOf(lhs.substring(0, lhs.indexOf("=")));
-                Integer rid = Integer.valueOf(rhs.substring(0, rhs.indexOf("=")));
-                return lid.compareTo(rid);
-            }
-        });
-
-        List<List<Disposition>> dispositions = new ArrayList<>();
-        for (String s : ordered) {
-            dispositions.add(DispositionUtil.toDispositions(s.substring(s.indexOf("=") + 1)));
-        }
-        return dispositions;
-    }
-
-    public static void setPortraitUserDispositions(
-            Context context, List<List<Disposition>> dispositions) {
-        setUserDispositions(context, "ui_layout_portrait_saved_disposition", dispositions);
-    }
-
-    private static void setUserDispositions(
-            Context context, String key, List<List<Disposition>> dispositions) {
-        Set<String> savedDispositions = new HashSet<>(dispositions.size());
-        int i = 0;
-        for (List<Disposition> d : dispositions) {
-            savedDispositions.add(i + "=" + DispositionUtil.fromDispositions(d));
-        }
-
-        SharedPreferences preferences =
-                context.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putStringSet(key, savedDispositions);
-        editor.apply();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPager.removeOnPageChangeListener(this);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -162,6 +104,13 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
         }
 
         super.onPause();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPager.removeOnPageChangeListener(this);
     }
 
     /**
@@ -253,10 +202,60 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
         String[] templates = getDispositionsTemplates();
         List<Dispositions> systemDispositions = new ArrayList<>(templates.length);
         for (String template : templates) {
-            systemDispositions.add(new Dispositions(Dispositions.TYPE_SYSTEM,
-                    DispositionUtil.toDispositions(template), rows, cols));
+            systemDispositions.add(new Dispositions(Dispositions.TYPE_SYSTEM,DispositionUtil.toDispositions(template), rows, cols));
         }
         return systemDispositions;
+    }
+
+    public static List<List<Disposition>> getPortraitUserDispositions(Context context) {
+        return getUserDispositions(context, "ui_layout_portrait_saved_disposition");
+    }
+
+
+    private static SharedPreferences getSharedPreferences(Context context) {
+        return context.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
+    }
+
+
+    private static List<List<Disposition>> getUserDispositions(Context context, String key) {
+        Set<String> savedDispositions = getSharedPreferences(context).getStringSet(key, null);
+        if (savedDispositions == null) {
+            return new ArrayList<>();
+        }
+
+        List<String> ordered = new ArrayList<>(savedDispositions);
+        Collections.sort(ordered, new Comparator<String>() {
+            @Override
+            public int compare(String lhs, String rhs) {
+                Integer lid = Integer.valueOf(lhs.substring(0, lhs.indexOf("=")));
+                Integer rid = Integer.valueOf(rhs.substring(0, rhs.indexOf("=")));
+                return lid.compareTo(rid);
+            }
+        });
+
+        List<List<Disposition>> dispositions = new ArrayList<>();
+        for (String s : ordered) {
+            dispositions.add(DispositionUtil.toDispositions(s.substring(s.indexOf("=") + 1)));
+        }
+        return dispositions;
+    }
+
+    public static void setPortraitUserDispositions(Context context, List<List<Disposition>> dispositions) {
+        setUserDispositions(context, "ui_layout_portrait_saved_disposition", dispositions);
+    }
+
+    private static void setUserDispositions(Context context, String key, List<List<Disposition>> dispositions) {
+        Set<String> savedDispositions = new HashSet<>(dispositions.size());
+        int i = 0;
+        for (List<Disposition> d : dispositions) {
+            savedDispositions.add(i + "=" + DispositionUtil.fromDispositions(d));
+        }
+
+        SharedPreferences preferences =
+                context.getSharedPreferences(PREFERENCES_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putStringSet(key, savedDispositions);
+        editor.apply();
     }
 
     /**
@@ -264,6 +263,7 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
      */
     @Override
     public void onFrameSelectedListener(View v) {
+
     }
 
     /**
@@ -271,6 +271,7 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
      */
     @Override
     public void onFrameUnselectedListener() {
+
     }
 
     /**
@@ -301,11 +302,9 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
             }
             int saved = mAdapter.getCountOfSavedDispositions();
             if (position <= saved) {
-                mAdvise.setText(getString(R.string.pref_disposition_saved,
-                        String.valueOf(position), String.valueOf(saved)));
+                mAdvise.setText(getString(R.string.pref_disposition_saved,String.valueOf(position), String.valueOf(saved)));
             } else {
-                mAdvise.setText(getString(R.string.pref_disposition_template,
-                        String.valueOf(position - saved), String.valueOf(mNumberOfTemplates)));
+                mAdvise.setText(getString(R.string.pref_disposition_template,String.valueOf(position - saved), String.valueOf(mNumberOfTemplates)));
             }
         }
     }
@@ -324,25 +323,22 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
         mAdapter.deleteUserDisposition(current);
         mPager.setCurrentItem(current - 1);
         mPager.setAdapter(mAdapter);
-        Toast.makeText(this, R.string.saved_dispositions_delete_success,
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.saved_dispositions_delete_success,Toast.LENGTH_SHORT).show();
     }
 
     private void addCurrentToSaved() {
         List<Disposition> current = mAdapter.getView(0).getDispositions();
         if (getUserDispositions().contains(current)) {
-            Toast.makeText(this, R.string.saved_dispositions_save_exists,
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.saved_dispositions_save_exists,Toast.LENGTH_SHORT).show();
             return;
         }
-        Dispositions dispositions = new Dispositions(Dispositions.TYPE_SAVED,
-                current, getRows(), getCols());
+        Dispositions dispositions = new Dispositions(Dispositions.TYPE_SAVED,current, getRows(), getCols());
         saveUserDisposition(current);
         mAdapter.addUserDisposition(dispositions);
         mPager.setAdapter(mAdapter);
-        Toast.makeText(this, R.string.saved_dispositions_save_success,
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.saved_dispositions_save_success,Toast.LENGTH_SHORT).show();
     }
+
 
     /**
      * {@inheritDoc}
@@ -351,36 +347,45 @@ public class PhaseActivity extends AppCompatActivity implements DispositionView.
         return dispositions;
     }
 
+
     public List<Disposition> getDefaultDispositions() {
         return DispositionUtil.toDispositions(DEFAULT_PORTRAIT_DISPOSITION);
     }
+
 
     public String[] getDispositionsTemplates() {
         return this.getResources().getStringArray(R.array.portrait_disposition_templates);
     }
 
+
     public void saveDispositions(List<Disposition> dispositions) {
         this.dispositions = dispositions;
     }
+
 
     public List<List<Disposition>> getUserDispositions() {
         return userDispositions;
     }
 
+
     public void saveUserDisposition(List<Disposition> disposition) {
         userDispositions.add(disposition);
     }
+
 
     public void deleteUserDisposition(int position) {
         userDispositions.remove(position);
     }
 
+
     public int getRows() {
         return DEFAULT_ROWS;
     }
 
+
     public int getCols() {
         return DEFAULT_COLS;
     }
+
 }
 

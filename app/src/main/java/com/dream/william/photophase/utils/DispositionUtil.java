@@ -38,6 +38,7 @@ public final class DispositionUtil {
     public static List<Disposition> toDispositions(String value) {
         String[] v = value.split("\\|");
         List<Disposition> dispositions = new ArrayList<>(v.length);
+
         for (String s : v) {
             int flags = Disposition.ALL_FLAGS;
             if (s.contains("~")) {
@@ -48,6 +49,7 @@ public final class DispositionUtil {
             String[] s1 = s.split(":");
             String[] s2 = s1[0].split("x");
             String[] s3 = s1[1].split("x");
+
             Disposition disposition = new Disposition();
             disposition.x = Integer.parseInt(s2[0]);
             disposition.y = Integer.parseInt(s2[1]);
