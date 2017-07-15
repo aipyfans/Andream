@@ -20,6 +20,10 @@
         <activity android:name=".view.layout.ConstraintLayoutActivity"/>
         <activity android:name=".photophase.PhaseActivity">
         </activity>
+        <activity android:name=".photophase.PhaseEditActivity">
+        </activity>
+        <activity android:name=".photophase.PhaseShowActivity">
+        </activity>
     </application>
 
 </manifest>

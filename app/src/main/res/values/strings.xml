@@ -2,7 +2,6 @@
     <string name="app_name">Andream</string>
 
 
-
     <!-- Saved dispositions -->
     <string name="saved_dispositions_save_success">Successfully saved</string>
     <string name="saved_dispositions_save_exists">Another disposition with the same layout exists</string>

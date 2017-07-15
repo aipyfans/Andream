@@ -632,11 +632,14 @@ public class DispositionView extends RelativeLayout
     private View findTargetFromResizeFrame() {
         int count = getChildCount();
         for (int i = 0; i < count; i++) {
+
             View v = getChildAt(i);
+
             if (v.getX() < (mResizeFrame.getX() + (mResizeFrame.getWidth() / 2)) &&
                     (v.getX() + v.getWidth()) > (mResizeFrame.getX() + (mResizeFrame.getWidth() / 2)) &&
                     v.getY() < (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2)) &&
-                    (v.getY() + v.getHeight()) > (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2))) {
+                    (v.getY() + v.getHeight()) > (mResizeFrame.getY() + (mResizeFrame.getHeight() / 2))
+                 ) {
                 return v;
             }
         }

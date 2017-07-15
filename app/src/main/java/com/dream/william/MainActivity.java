@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dream.william.photophase.PhaseActivity;
+import com.dream.william.photophase.PhaseEditActivity;
+import com.dream.william.photophase.PhaseShowActivity;
 import com.dream.william.view.notification.NotificationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_photo_phase:
                 startActivity(new Intent(this, PhaseActivity.class));
+                break;
+
+            case R.id.btn_phase_edit:
+                startActivity(new Intent(this, PhaseEditActivity.class));
+                break;
+
+            case R.id.btn_phase_show:
+                startActivity(new Intent(this, PhaseShowActivity.class));
                 break;
 
         }
