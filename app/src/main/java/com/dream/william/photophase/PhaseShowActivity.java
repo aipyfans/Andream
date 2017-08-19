@@ -2,9 +2,8 @@ package com.dream.william.photophase;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import com.dream.william.R;
+import com.dream.william.app.BaseActivity;
 import com.dream.william.photophase.model.Disposition;
 import com.dream.william.photophase.model.Dispositions;
 import com.dream.william.photophase.utils.DispositionUtil;
@@ -12,7 +11,7 @@ import com.dream.william.photophase.widgets.DispositionView;
 
 import java.util.List;
 
-public class PhaseShowActivity extends AppCompatActivity {
+public class PhaseShowActivity extends BaseActivity {
 
     private static final String PORTRAIT_DISPOSITION = "0x0:2x1|0x2:1x3|0x4:3x6|2x2:3x3|3x0:3x0|3x1:3x1";
     private static final int DEFAULT_COLS = 4;

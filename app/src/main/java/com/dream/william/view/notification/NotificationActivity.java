@@ -6,12 +6,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.RemoteViews;
 
 import com.dream.william.R;
+import com.dream.william.app.BaseActivity;
 import com.dream.william.photophase.PhaseActivity;
 
 /**
@@ -21,7 +21,7 @@ import com.dream.william.photophase.PhaseActivity;
  *
  * https://www.bbsmax.com/A/WpdKgAGMdV/
  */
-public class NotificationActivity extends AppCompatActivity {
+public class NotificationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

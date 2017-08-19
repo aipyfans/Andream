@@ -1,16 +1,18 @@
 package com.dream.william;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dream.william.app.BaseActivity;
 import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;
 import com.dream.william.photophase.PhaseShowActivity;
 import com.dream.william.view.notification.NotificationActivity;
+import com.dream.william.view.widget.SearchViewActivity;
+import com.dream.william.view.widget.ToolBarActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_phase_show:
                 startActivity(new Intent(this, PhaseShowActivity.class));
+                break;
+
+            case R.id.btn_tool_bar:
+                startActivity(new Intent(this, ToolBarActivity.class));
+                break;
+
+            case R.id.btn_search_view:
+                startActivity(new Intent(this, SearchViewActivity.class));
                 break;
 
         }

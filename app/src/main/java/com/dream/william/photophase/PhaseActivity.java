@@ -5,13 +5,13 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dream.william.R;
+import com.dream.william.app.BaseActivity;
 import com.dream.william.photophase.model.Disposition;
 import com.dream.william.photophase.model.Dispositions;
 import com.dream.william.photophase.utils.DispositionUtil;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 
 
-public class PhaseActivity extends AppCompatActivity implements DispositionView.OnFrameSelectedListener, ViewPager.OnPageChangeListener {
+public class PhaseActivity extends BaseActivity implements DispositionView.OnFrameSelectedListener, ViewPager.OnPageChangeListener {
 
     public static final String DEFAULT_PORTRAIT_DISPOSITION = "0x0:2x1|0x2:1x3|0x4:3x6|2x2:3x3|3x0:3x0|3x1:3x1";
     private static final String PREFERENCES_FILE = "com.hylaa";
