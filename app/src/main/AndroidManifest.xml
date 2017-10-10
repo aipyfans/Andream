@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -44,6 +43,16 @@
         <activity
             android:name=".view.widget.SearchViewActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".component.activity.ActivityOne">
+        </activity>
+        <activity android:name=".component.activity.ActivityTwo">
+        </activity>
+        <activity android:name=".component.activity.ActivityZero">
+        </activity>
+        <activity android:name=".view.widget.WebViewActivity">
+        </activity>
+        <activity android:name=".view.widget.TextViewActivity">
+        </activity>
     </application>
 
 </manifest>

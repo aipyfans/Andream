@@ -17,7 +17,7 @@
         <!-- Tints the input fields like checkboxes and text fields -->
         <item name="colorAccent">@color/accent</item>
         <!-- Applies to views in their normal state. -->
-        <item name="colorControlNormal">@color/accent</item>
+        <item name="colorControlNormal">@color/icons</item>
         <!-- Applies to views in their activated state (i.e checked or switches) -->
         <item name="colorControlActivated">@color/accent</item>
         <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
@@ -33,7 +33,7 @@
     <!-- This configures the styles for the title within the Toolbar  -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
 </resources>

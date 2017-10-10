@@ -13,8 +13,7 @@ import com.dream.william.app.BaseActivity;
 /**
  *
  * http://yuweiguocn.github.io/using-the-app-toolbar/
- *
- * http://guides.codepath.com/android/Using-the-App-Toolbar
+ * http://www.jianshu.com/p/7b5c99e1cfa3
  *
  */
 public class ToolBarActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener{
@@ -35,17 +34,18 @@ public class ToolBarActivity extends BaseActivity implements Toolbar.OnMenuItemC
         mToolbar.setTitle("Toolbar");
         mToolbar.setSubtitle("SubToolbar");
         mToolbar.setLogo(R.mipmap.ic_launcher_round);
+
         setSupportActionBar(mToolbar);
+        //设置是否添加显示NavigationIcon.如果要用
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        mToolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
+        // mToolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
         mToolbar.setOnMenuItemClickListener(this);
     }
 
