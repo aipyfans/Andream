@@ -1,0 +1,5 @@
+<resources>
+    <string name="str_net_exception">Network anomaly</string>
+    <string name="str_net_time_out">Request timeout</string>
+    <string name="str_toast_later">Please try again later.</string>
+</resources>
