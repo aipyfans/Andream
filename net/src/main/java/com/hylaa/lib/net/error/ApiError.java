@@ -12,18 +12,8 @@ import java.io.Serializable;
  * @created 2016-11-6.
  * @tel 152-5320-8570
  */
-public class NetError extends Exception implements Serializable{
+public class ApiError extends RuntimeException implements Serializable{
 
-    /**
-     * Net exception.
-     */
-    public static final int ERR_NET_EXCEPTION = 0x1;
-
-
-    /**
-     *  Request timeout
-     */
-    public static final int ERR_NET_TIME_OUT = 0x2;
 
     @SerializedName("status_code")
     public int code;
@@ -31,12 +21,12 @@ public class NetError extends Exception implements Serializable{
     @SerializedName("message")
     public String msg;
 
-    public NetError(int code, String msg) {
+    public ApiError(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
 
-    public NetError(int code) {
+    public ApiError(int code) {
         this.code = code;
     }
 

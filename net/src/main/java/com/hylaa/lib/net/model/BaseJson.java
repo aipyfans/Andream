@@ -1,7 +1,7 @@
 package com.hylaa.lib.net.model;
 
 
-import com.hylaa.lib.net.error.NetError;
+import com.hylaa.lib.net.error.ApiError;
 
 import java.io.Serializable;
 
@@ -35,8 +35,8 @@ public class BaseJson implements Serializable {
         this.message = message;
     }
 
-    public NetError getError() {
-        NetError ne = new NetError(code,message);
+    public ApiError getError() {
+        ApiError ne = new ApiError(code,message);
         return ne;
     }
 }

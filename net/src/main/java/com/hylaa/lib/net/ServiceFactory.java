@@ -3,9 +3,6 @@ package com.hylaa.lib.net;
 
 import android.text.TextUtils;
 
-import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.hylaa.lib.net.interceptor.InterceptorBody;
-import com.hylaa.lib.net.interceptor.InterceptorLog;
 import com.hylaa.lib.net.interceptor.InterceptorToken;
 
 import java.util.concurrent.TimeUnit;
@@ -16,13 +13,6 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-/**
- * 服务端接口工厂类.
- *
- * @author 李君波
- * @version v1.0.0
- * @date 2015-9-20
- */
 public class ServiceFactory {
 
 
@@ -76,10 +66,7 @@ public class ServiceFactory {
 
         OkHttpClient.Builder ocb = new OkHttpClient.Builder().
                 readTimeout(60, TimeUnit.SECONDS).
-                writeTimeout(60, TimeUnit.SECONDS).
-                addNetworkInterceptor(new StethoInterceptor()).
-                addInterceptor(new InterceptorLog()).
-                addInterceptor(new InterceptorBody());
+                writeTimeout(60, TimeUnit.SECONDS);
 
         // 统一做Token验证
         if (null != mGtedxHook) {
