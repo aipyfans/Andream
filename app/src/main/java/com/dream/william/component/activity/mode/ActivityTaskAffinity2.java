@@ -1,4 +1,4 @@
-package com.dream.william.component.activity;
+package com.dream.william.component.activity.mode;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import android.widget.Button;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.component.activity.lifecycle.ActivityTwo;
 
-public class ActivityModeTaskAffinity extends BaseActivity implements View.OnClickListener {
+public class ActivityTaskAffinity2 extends BaseActivity implements View.OnClickListener {
 
     private Toolbar tbBar;
     private Button btnSingleTaskAffinityStart;
@@ -18,7 +19,7 @@ public class ActivityModeTaskAffinity extends BaseActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode_task_affinity);
+        setContentView(R.layout.activity_task_affinity2);
 
         Log.e(TAG, "taskId = : " + getTaskId());
         initView();
@@ -27,7 +28,7 @@ public class ActivityModeTaskAffinity extends BaseActivity implements View.OnCli
 
     private void initView() {
         tbBar = (Toolbar) findViewById(R.id.tb_bar);
-        tbBar.setTitle("Task AffinityActivity");
+        tbBar.setTitle("Task AffinityActivity2");
         setSupportActionBar(tbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tbBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -36,7 +37,6 @@ public class ActivityModeTaskAffinity extends BaseActivity implements View.OnCli
                 finish();
             }
         });
-
         btnSingleTaskAffinityStart = (Button) findViewById(R.id.btn_single_task_affinity_start);
         btnSingleTaskAffinityStart.setOnClickListener(this);
     }
@@ -45,7 +45,7 @@ public class ActivityModeTaskAffinity extends BaseActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_single_task_affinity_start:
-                startActivity(new Intent(this, ActivityModeTaskAffinity2.class));
+                startActivity(new Intent(this, ActivityTwo.class));
                 break;
         }
     }

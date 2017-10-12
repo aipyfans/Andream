@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dream.william.component.activity.ActivityModeSingleInstance">
+    tools:context="com.dream.william.component.activity.mode.ActivitySingleTop">
 
     <include
         android:id="@+id/tb_bar"
@@ -22,17 +22,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:padding="8dp"
-        android:text="Activity的启动模式:单实例模式\n\n这是一种加强的singleTask模式,它除了具有singleTask模式的所有特性外,还加强了一点,那就是具有此种模式的Activity只能单独地位于一个任务栈中."
+        android:text="Activity的启动模式:栈顶复用模式\n\n在这种模式下,如果新Activity已经位于任务栈的栈顶,那么此Activity不会被重新创建,同时它的onNewIntent方法会被调用,通过此方法的参数我们可以取出当前请求的信息.需要注意的是:这个Activity的onCreate,onStart不会被系统调用,因为它并没有发生改变.如果新的Activity的实例已经存在但不是位于栈顶,那么新Activity仍然会重新创建."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
 
     <Button
-        android:id="@+id/btn_single_instance_start"
+        android:id="@+id/btn_single_top_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="多次启动singleInstance模式的Activity"
+        android:text="多次启动singleTop模式的Activity"
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -47,6 +47,7 @@
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_single_instance_start"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_top_start"/>
+
 
 </android.support.constraint.ConstraintLayout>

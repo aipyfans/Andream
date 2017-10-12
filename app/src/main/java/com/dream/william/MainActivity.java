@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.dream.william.app.BaseActivity;
-import com.dream.william.component.activity.ActivityOne;
+import com.dream.william.component.activity.lifecycle.ActivityOne;
 import com.dream.william.net.NetTestActivity;
 import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;

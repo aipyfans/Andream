@@ -1,4 +1,4 @@
-package com.dream.william.component.activity;
+package com.dream.william.component.activity.lifecycle;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,23 +8,29 @@ import android.view.View;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.component.activity.mode.ActivitySingleInstance;
+import com.dream.william.component.activity.mode.ActivitySingleTask;
+import com.dream.william.component.activity.mode.ActivitySingleTop;
+import com.dream.william.component.activity.mode.ActivityStandard;
+import com.dream.william.component.activity.mode.ActivityTaskAffinity;
 
-public class ActivityOne extends BaseActivity {
+public class ActivityTwo extends BaseActivity {
 
     private Toolbar mTbBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one);
+        setContentView(R.layout.activity_two);
 
         Log.w(TAG, "onCreate");
+        Log.e(TAG, "taskId = : " + getTaskId());
         initView();
     }
 
     private void initView() {
         mTbBar = (Toolbar) findViewById(R.id.tb_bar);
-        mTbBar.setTitle("First Activity");
+        mTbBar.setTitle("Second Activity");
 
         setSupportActionBar(mTbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -36,20 +42,29 @@ public class ActivityOne extends BaseActivity {
         });
     }
 
+
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
 
-            case R.id.btn_second:
-                startActivity(new Intent(this, ActivityTwo.class));
+            case R.id.btn_standard:
+                startActivity(new Intent(this, ActivityStandard.class));
                 break;
 
-            case R.id.btn_zero:
-                startActivity(new Intent(this, ActivityZero.class));
+            case R.id.btn_single_top:
+                startActivity(new Intent(this, ActivitySingleTop.class));
                 break;
 
-            case R.id.btn_config:
-                startActivity(new Intent(this, ActivityConfig.class));
+            case R.id.btn_single_task:
+                startActivity(new Intent(this, ActivitySingleTask.class));
+                break;
+
+            case R.id.btn_single_instance:
+                startActivity(new Intent(this, ActivitySingleInstance.class));
+                break;
+
+            case R.id.btn_task_affinity:
+                startActivity(new Intent(this, ActivityTaskAffinity.class));
                 break;
         }
     }
@@ -100,6 +115,5 @@ public class ActivityOne extends BaseActivity {
 
         Log.w(TAG, "onDestroy");
     }
-
 
 }

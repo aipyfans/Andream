@@ -1,4 +1,4 @@
-package com.dream.william.component.activity;
+package com.dream.william.component.activity.mode;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,28 +6,30 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 
-public class ActivityModeTaskAffinity2 extends BaseActivity implements View.OnClickListener {
+public class ActivityStandard extends BaseActivity implements View.OnClickListener {
 
     private Toolbar tbBar;
-    private Button btnSingleTaskAffinityStart;
+    private TextView tvDesc;
+    private Button btnStandardStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode_task_affinity2);
+        setContentView(R.layout.activity_standard);
 
-        Log.e(TAG, "taskId = : " + getTaskId());
         initView();
+        Log.w(TAG,"onCreate 新实例 = : " + toString());
+        Log.e(TAG, "taskId = : " + getTaskId());
     }
-
 
     private void initView() {
         tbBar = (Toolbar) findViewById(R.id.tb_bar);
-        tbBar.setTitle("Task AffinityActivity2");
+        tbBar.setTitle("Standard Activity");
         setSupportActionBar(tbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tbBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -36,15 +38,18 @@ public class ActivityModeTaskAffinity2 extends BaseActivity implements View.OnCl
                 finish();
             }
         });
-        btnSingleTaskAffinityStart = (Button) findViewById(R.id.btn_single_task_affinity_start);
-        btnSingleTaskAffinityStart.setOnClickListener(this);
+
+        tvDesc = (TextView) findViewById(R.id.tv_desc);
+        btnStandardStart = (Button) findViewById(R.id.btn_standard_start);
+
+        btnStandardStart.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_single_task_affinity_start:
-                startActivity(new Intent(this, ActivityTwo.class));
+            case R.id.btn_standard_start:
+                startActivity(new Intent(this, ActivityStandard.class));
                 break;
         }
     }

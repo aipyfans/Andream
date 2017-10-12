@@ -1,4 +1,4 @@
-package com.dream.william.component.activity;
+package com.dream.william.component.activity.mode;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,19 +9,19 @@ import android.widget.Button;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.component.activity.lifecycle.ActivityTwo;
 
-public class ActivityModeSingleInstance extends BaseActivity implements View.OnClickListener {
+public class ActivitySingleTask extends BaseActivity implements View.OnClickListener {
 
     private Toolbar tbBar;
-    private Button btnSingleInstanceStart;
+    private Button btnSingleTaskStart;
     private Button btnStandardStart;
     private int num;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mode_single_instance);
+        setContentView(R.layout.activity_single_task);
         initView();
 
         Log.w(TAG, "onCreate");
@@ -63,23 +63,21 @@ public class ActivityModeSingleInstance extends BaseActivity implements View.OnC
             }
         });
 
-        btnSingleInstanceStart = (Button) findViewById(R.id.btn_single_instance_start);
+        btnSingleTaskStart = (Button) findViewById(R.id.btn_single_task_start);
         btnStandardStart = (Button) findViewById(R.id.btn_standard_start);
 
-        btnSingleInstanceStart.setOnClickListener(this);
+        btnSingleTaskStart.setOnClickListener(this);
         btnStandardStart.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
-            case R.id.btn_single_instance_start:
-                Intent intent = new Intent(this, ActivityModeSingleInstance.class);
+            case R.id.btn_single_task_start:
+                Intent intent = new Intent(this, ActivitySingleTask.class);
                 intent.putExtra(TAG, "number = " + String.valueOf(num++));
                 startActivity(intent);
                 break;
-
             case R.id.btn_standard_start:
                 startActivity(new Intent(this, ActivityTwo.class));
                 break;

@@ -1,4 +1,4 @@
-package com.dream.william.component.activity;
+package com.dream.william.component.activity.lifecycle;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
