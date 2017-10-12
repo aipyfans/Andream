@@ -1,5 +1,6 @@
 package com.dream.william.component.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -8,26 +9,27 @@ import android.view.View;
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 
-public class ActivityZero extends BaseActivity {
+public class ActivityConfig extends BaseActivity {
 
     private Toolbar mTbBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zero);
+        setContentView(R.layout.activity_config);
 
         Log.w(TAG, "onCreate");
         if (savedInstanceState != null) {
             String saveResult = savedInstanceState.getString("William", "Lee");
             Log.e(TAG, saveResult);
         }
+
         initView();
     }
 
     private void initView() {
         mTbBar = (Toolbar) findViewById(R.id.tb_bar);
-        mTbBar.setTitle("Zero Activity");
+        mTbBar.setTitle("Config Activity");
 
         setSupportActionBar(mTbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,6 +41,12 @@ public class ActivityZero extends BaseActivity {
         });
     }
 
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.e(TAG, "onConfigurationChanged,newOrientation:" + newConfig.orientation + ",newScreenSize:" + newConfig.screenWidthDp);
+    }
 
     /**
      * 此钩子函数:在onStop()之前调用,同时有可能在onPause()之前或者之后调用.
@@ -114,4 +122,6 @@ public class ActivityZero extends BaseActivity {
 
         Log.w(TAG, "onDestroy");
     }
+
+
 }

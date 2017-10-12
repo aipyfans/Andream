@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dream.william.component.activity.ActivityZero">
+    tools:context="com.dream.william.component.activity.ActivityConfig">
 
 
     <include
@@ -18,27 +18,15 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_mode_activity"
+        android:id="@+id/tv_config_changes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="I'm a launcher mode activity. \n\n根据横竖屏测试\nActivity销毁是否重新创建\n以及数据的保存和恢复"
+        android:text="此页面测试的是: \n切换横竖屏后,当前Activity是否会重新创建\n在Manifests.xml配置文件的Activity中加入了\n[android:configChanges=orientation|screenSize]\n看输出日志得出结论\nActivity不会重新创建实例,但是会调用onConfigurationChanged()方法"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:inputType="textPersonName"
-        android:text="William Dream - 为了梦 追梦"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mode_activity"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -45,18 +45,43 @@
         <activity
             android:name=".view.widget.SearchViewActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".component.activity.ActivityOne">
-        </activity>
-        <activity android:name=".component.activity.ActivityTwo">
-        </activity>
-        <activity android:name=".component.activity.ActivityZero">
-        </activity>
         <activity android:name=".view.widget.WebViewActivity">
         </activity>
         <activity android:name=".view.widget.TextViewActivity">
         </activity>
         <activity android:name=".net.NetTestActivity">
         </activity>
+
+        <!-- Activity的生命周期 -->
+        <activity android:name=".component.activity.ActivityOne"/>
+        <activity android:name=".component.activity.ActivityTwo"/>
+        <activity android:name=".component.activity.ActivityZero"/>
+        <activity
+            android:name=".component.activity.ActivityConfig"
+            android:configChanges="orientation|screenSize"/>
+
+        <!-- Activity的启动模式 -->
+        <activity
+            android:name=".component.activity.ActivityModeStandard"
+            android:launchMode="standard"/>
+        <activity
+            android:name=".component.activity.ActivityModeSingleTop"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".component.activity.ActivityModeSingleTask"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".component.activity.ActivityModeSingleInstance"
+            android:launchMode="singleInstance"/>
+        <!--TaskAffinity 任务相关性-->
+        <activity
+            android:name=".component.activity.ActivityModeTaskAffinity"
+            android:launchMode="singleTask"
+            android:taskAffinity="study.william.dream"/>
+        <activity
+            android:name=".component.activity.ActivityModeTaskAffinity2"
+            android:launchMode="singleTask"
+            android:taskAffinity="study.william.dream"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.dream.william.component.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class ActivityTwo extends BaseActivity {
         setContentView(R.layout.activity_two);
 
         Log.w(TAG, "onCreate");
+        Log.e(TAG, "taskId = : " + getTaskId());
         initView();
     }
 
@@ -36,11 +38,37 @@ public class ActivityTwo extends BaseActivity {
     }
 
 
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+
+            case R.id.btn_standard:
+                startActivity(new Intent(this, ActivityModeStandard.class));
+                break;
+
+            case R.id.btn_single_top:
+                startActivity(new Intent(this, ActivityModeSingleTop.class));
+                break;
+
+            case R.id.btn_single_task:
+                startActivity(new Intent(this, ActivityModeSingleTask.class));
+                break;
+
+            case R.id.btn_single_instance:
+                startActivity(new Intent(this, ActivityModeSingleInstance.class));
+                break;
+
+            case R.id.btn_task_affinity:
+                startActivity(new Intent(this, ActivityModeTaskAffinity.class));
+                break;
+        }
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        Log.w(TAG,"onStart");
+        Log.w(TAG, "onStart");
     }
 
 
@@ -48,7 +76,7 @@ public class ActivityTwo extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
 
-        Log.w(TAG,"onRestart");
+        Log.w(TAG, "onRestart");
     }
 
 
@@ -56,7 +84,7 @@ public class ActivityTwo extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        Log.w(TAG,"onResume");
+        Log.w(TAG, "onResume");
     }
 
 
@@ -64,7 +92,7 @@ public class ActivityTwo extends BaseActivity {
     protected void onPause() {
         super.onPause();
 
-        Log.w(TAG,"onPause");
+        Log.w(TAG, "onPause");
     }
 
 
@@ -72,7 +100,7 @@ public class ActivityTwo extends BaseActivity {
     protected void onStop() {
         super.onStop();
 
-        Log.w(TAG,"onStop");
+        Log.w(TAG, "onStop");
     }
 
 
@@ -80,7 +108,7 @@ public class ActivityTwo extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        Log.w(TAG,"onDestroy");
+        Log.w(TAG, "onDestroy");
     }
 
 }

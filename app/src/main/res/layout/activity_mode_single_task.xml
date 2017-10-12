@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dream.william.component.activity.ActivityOne">
-
+    tools:context="com.dream.william.component.activity.ActivityModeSingleTask">
 
     <include
         android:id="@+id/tb_bar"
@@ -18,57 +17,37 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tv_first_activity"
+        android:id="@+id/tv_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="I'm a first activity \n 主要测试Activity的生命周期及其配置"
+        android:padding="8dp"
+        android:text="Activity的启动模式:栈内复用模式\n\n这是一种单例模式,在这种模式下,只要Activity在一个栈中存在,那么多次启动此Activity都不会重新创建实例,如果此Activity上面还有多个Activity,那么启动此Activity时会清除其栈顶上的所有Activity,和SingleTop一样,系统也会回调其onNewIntent方法."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
 
-
     <Button
-        android:id="@+id/btn_second"
+        android:id="@+id/btn_single_task_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:onClick="onClick"
-        android:text="Enter Second Activity"
+        android:layout_marginTop="8dp"
+        android:text="多次启动singleTask模式的Activity"
         android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_first_activity"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc"/>
 
     <Button
-        android:id="@+id/btn_zero"
+        android:id="@+id/btn_standard_start"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:onClick="onClick"
-        android:text="Enter Zero Activity"
+        android:layout_marginTop="8dp"
+        android:text="进入一个Standard模式的Activity"
         android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_second"/>
-
-
-    <Button
-        android:id="@+id/btn_config"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:onClick="onClick"
-        android:text="Enter Config Activity"
-        android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_zero"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_task_start"/>
 
 
 </android.support.constraint.ConstraintLayout>

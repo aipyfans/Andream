@@ -36,8 +36,22 @@ public class ActivityOne extends BaseActivity {
         });
     }
 
-    public void onClick(View view){
-        startActivity(new Intent(this,ActivityTwo.class));
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+
+            case R.id.btn_second:
+                startActivity(new Intent(this, ActivityTwo.class));
+                break;
+
+            case R.id.btn_zero:
+                startActivity(new Intent(this, ActivityZero.class));
+                break;
+
+            case R.id.btn_config:
+                startActivity(new Intent(this, ActivityConfig.class));
+                break;
+        }
     }
 
     @Override

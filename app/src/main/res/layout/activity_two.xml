@@ -23,9 +23,80 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="I'm a second activity"
+        android:text="I'm a second activity\n 主要测试Activity的启动模式"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
+
+
+    <Button
+        android:id="@+id/btn_standard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter Standard Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_second_activity"/>
+
+
+    <Button
+        android:id="@+id/btn_single_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter Single Top Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_standard"/>
+
+
+    <Button
+        android:id="@+id/btn_single_task"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter Single Task Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_top"/>
+
+
+    <Button
+        android:id="@+id/btn_single_instance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter Single Instance Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_task"/>
+
+
+    <Button
+        android:id="@+id/btn_task_affinity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter singleTask And taskAffinity Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_instance"/>
+
 
 </android.support.constraint.ConstraintLayout>
