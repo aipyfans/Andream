@@ -110,6 +110,14 @@
                 android:text="SearchView"
                 android:textAllCaps="false"/>
 
+            <Button
+                android:id="@+id/btn_net_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Net Request"
+                android:textAllCaps="false"/>
+
         </LinearLayout>
 
     </ScrollView>

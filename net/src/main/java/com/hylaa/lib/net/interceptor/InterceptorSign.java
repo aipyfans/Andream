@@ -3,7 +3,6 @@ package com.hylaa.lib.net.interceptor;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.hylaa.lib.net.GtedxHook;
 import com.hylaa.lib.net.common.NetConst;
 import com.hylaa.lib.net.common.NetUtil;
 
@@ -30,10 +29,10 @@ import okio.ByteString;
 public class InterceptorSign implements Interceptor {
 
 
-    private GtedxHook mGtedxHook;
+    private String mToken;
 
-    public InterceptorSign(GtedxHook gtedxHook) {
-        mGtedxHook = gtedxHook;
+    public InterceptorSign(String token) {
+        mToken = token;
     }
 
     @Override
@@ -135,14 +134,14 @@ public class InterceptorSign implements Interceptor {
         if (!TextUtils.isEmpty(bodyJson)) {
             String utcDate = NetUtil.getCurrentUTCDate();
             String md5Inner = NetUtil.getMD5(method + "\n" + urlPath + "\n" + bodyJson);
-            String md5Outer = NetUtil.getMD5(mGtedxHook.getGtedxToken() + "\n" /*+ utcDate + "\n" */ + md5Inner); // TODO 此处1234通过内存或配置文件读取token
+            String md5Outer = NetUtil.getMD5(mToken + "\n" /*+ utcDate + "\n" */ + md5Inner); // TODO 此处1234通过内存或配置文件读取token
 
             headerRequestBuilder
                     .header(NetConst.Keys.DATE, utcDate)
-                    .header(NetConst.Keys.AUTHORIZATION, NetConst.Keys.BEARER + mGtedxHook.getGtedxToken()) // TODO 此处1234通过内存或配置文件读取token
+                    .header(NetConst.Keys.AUTHORIZATION, NetConst.Keys.BEARER + mToken) // TODO 此处1234通过内存或配置文件读取token
                     .header(NetConst.Keys.X_GTEDX_INTEGRITY, NetConst.Keys.GSIGN + md5Outer)
 //                    .header("X-Authenticated-Userid","15000522222@1"); // TODO 记得移除 学生
-                    .header("X-Authenticated-Userid", mGtedxHook.getGtedxToken()); // TODO 记得移除 老师15000500000@1
+                    .header("X-Authenticated-Userid", mToken); // TODO 记得移除 老师15000500000@1
         }
         /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 

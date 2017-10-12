@@ -1,7 +1,6 @@
 package com.hylaa.lib.net.model;
 
 
-
 import java.io.Serializable;
 
 /**

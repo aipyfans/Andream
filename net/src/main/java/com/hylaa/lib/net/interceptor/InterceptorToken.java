@@ -1,6 +1,5 @@
 package com.hylaa.lib.net.interceptor;
 
-import com.hylaa.lib.net.GtedxHook;
 import com.hylaa.lib.net.common.NetConst;
 
 import java.io.IOException;
@@ -19,17 +18,17 @@ import okhttp3.Response;
  */
 public class InterceptorToken implements Interceptor {
 
-    private final GtedxHook mGtedxHook;
+    private final String mToken;
 
-    public InterceptorToken(GtedxHook gtedxHook) {
-        mGtedxHook = gtedxHook;
+    public InterceptorToken(String token) {
+        mToken = token;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request originalRequest = chain.request();
         Request.Builder headerRequestBuilder = originalRequest.newBuilder();
-        headerRequestBuilder.header(NetConst.Keys.AUTHORIZATION, NetConst.Keys.BEARER + mGtedxHook.getGtedxToken());
+        headerRequestBuilder.header(NetConst.Keys.AUTHORIZATION, NetConst.Keys.BEARER + mToken);
         Request hearderRequest = headerRequestBuilder.build();
         Response response = chain.proceed(hearderRequest);
         return response;

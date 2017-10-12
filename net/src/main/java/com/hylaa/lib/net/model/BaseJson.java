@@ -5,6 +5,7 @@ import com.hylaa.lib.net.error.ApiError;
 
 import java.io.Serializable;
 
+
 /**
  * BaseJson.
  *

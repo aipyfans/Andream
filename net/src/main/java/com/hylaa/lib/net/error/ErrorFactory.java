@@ -14,6 +14,7 @@ import java.util.concurrent.TimeoutException;
 
 import retrofit2.adapter.rxjava.HttpException;
 
+
 /**
  * Create error messages according to the exception.
  *

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.dream.william.app.BaseActivity;
 import com.dream.william.component.activity.ActivityOne;
+import com.dream.william.net.NetTestActivity;
 import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;
 import com.dream.william.photophase.PhaseShowActivity;
@@ -77,6 +78,10 @@ public class MainActivity extends BaseActivity {
 
             case R.id.btn_search_view:
                 startActivity(new Intent(this, SearchViewActivity.class));
+                break;
+
+            case R.id.btn_net_test:
+                startActivity(new Intent(this, NetTestActivity.class));
                 break;
 
         }

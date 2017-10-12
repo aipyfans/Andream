@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.dream.william">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -52,6 +54,8 @@
         <activity android:name=".view.widget.WebViewActivity">
         </activity>
         <activity android:name=".view.widget.TextViewActivity">
+        </activity>
+        <activity android:name=".net.NetTestActivity">
         </activity>
     </application>
 

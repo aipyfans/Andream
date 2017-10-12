@@ -19,9 +19,15 @@ public abstract class SubscriberNet<T> extends Subscriber<T> implements Progress
 
     private ProgressDialogHandler mPDHandler;
 
-    public SubscriberNet(Context context) {
+    /**
+     * 此实例每次使用都必须重新实例化.
+     *
+     * @param context      ProgressDialog 所需窗口的Context
+     * @param isCancelable ProgressDialog 是否可以通过触摸关闭
+     */
+    public SubscriberNet(Context context, boolean isCancelable) {
         this.mContext = context;
-        mPDHandler = new ProgressDialogHandler(context, this, true);
+        mPDHandler = new ProgressDialogHandler(context, this, isCancelable);
     }
 
 
@@ -39,13 +45,18 @@ public abstract class SubscriberNet<T> extends Subscriber<T> implements Progress
 
     @Override
     public void onError(Throwable e) {
-        hideLoading();
-
         String msg = ErrorFactory.create(mContext, e);
         Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+
+        hideLoading();
     }
 
 
+    /**
+     * 统一做了相同格式的Http请求返回结果的数据封装以及根据返回结果的状态码进行的预处理.
+     *
+     * @param t
+     */
     @Override
     public void onNext(T t) {
         BaseJson bj = (BaseJson) t;
@@ -76,7 +87,7 @@ public abstract class SubscriberNet<T> extends Subscriber<T> implements Progress
         if (mPDHandler != null) {
             mPDHandler.obtainMessage(ProgressDialogHandler.DISMISS_PROGRESS_DIALOG).sendToTarget();
             mPDHandler = null;
-            mContext = null; // TODO 有可能会报错,待测试
+            mContext = null;
         }
     }
 
@@ -88,7 +99,7 @@ public abstract class SubscriberNet<T> extends Subscriber<T> implements Progress
     public void onCancelProgress() {
         if (!this.isUnsubscribed()) {
             this.unsubscribe();
-            mContext = null; // TODO 有可能会报错,待测试
+            mContext = null;
         }
     }
 

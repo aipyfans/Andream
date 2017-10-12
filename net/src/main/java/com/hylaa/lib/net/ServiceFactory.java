@@ -1,8 +1,6 @@
 package com.hylaa.lib.net;
 
 
-import android.text.TextUtils;
-
 import com.hylaa.lib.net.interceptor.InterceptorToken;
 
 import java.util.concurrent.TimeUnit;
@@ -15,46 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceFactory {
 
-
-    private String mHostPort;
-
-    private GtedxHook mGtedxHook;
-
-    public ServiceFactory(String hostPort) {
-        if (TextUtils.isEmpty(hostPort))
-            throw new NullPointerException("hostPort must be not null !");
-        this.mHostPort = hostPort;
-    }
-
-
-    public String getHostPort() {
-        return mHostPort;
-    }
-
-    public void setHostPort(String hostPort) {
-        mHostPort = hostPort;
-    }
-
-    public GtedxHook getGtedxHook() {
-        return mGtedxHook;
-    }
-
-    public void setGtedxHook(GtedxHook gtedxHook) {
-        mGtedxHook = gtedxHook;
-    }
-
-
-    /**
-     * Creates a retrofit service from an arbitrary class (clazz)
-     *
-     * @param clazz Java interface of the retrofit service
-     * @return retrofit service with defined endpoint
-     */
-    public <T> T createService(Class<T> clazz) {
-        return createService(clazz, getHostPort());
-    }
-
-
     /**
      * Creates a retrofit service from an arbitrary class (clazz)
      *
@@ -62,15 +20,15 @@ public class ServiceFactory {
      * @param endPoint REST endpoint url
      * @return retrofit service with defined endpoint
      */
-    public <T> T createService(Class<T> clazz, String endPoint) {
+    public <T> T createService(Class<T> clazz, String endPoint, String token) {
 
         OkHttpClient.Builder ocb = new OkHttpClient.Builder().
                 readTimeout(60, TimeUnit.SECONDS).
                 writeTimeout(60, TimeUnit.SECONDS);
 
         // 统一做Token验证
-        if (null != mGtedxHook) {
-            ocb.addInterceptor(new InterceptorToken(getGtedxHook()));
+        if (null != token) {
+            ocb.addInterceptor(new InterceptorToken(token));
         }
 
         OkHttpClient okHttpClient = ocb.build();
