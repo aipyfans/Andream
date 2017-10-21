@@ -31,11 +31,27 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btn_intent_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Intent 和 Intent 过滤器"
+                android:textAllCaps="false"/>
+
+            <Button
                 android:id="@+id/btn_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="Activity"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btn_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Fragment"
                 android:textAllCaps="false"/>
 
             <Button
@@ -95,19 +111,11 @@
                 android:textAllCaps="false"/>
 
             <Button
-                android:id="@+id/btn_tool_bar"
+                android:id="@+id/btn_views"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
-                android:text="ToolBar"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:id="@+id/btn_search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onClick"
-                android:text="SearchView"
+                android:text="Views"
                 android:textAllCaps="false"/>
 
             <Button

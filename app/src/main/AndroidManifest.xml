@@ -49,6 +49,8 @@
         </activity>
         <activity android:name=".view.widget.TextViewActivity">
         </activity>
+        <activity android:name=".view.widget.MainViewActivity">
+        </activity>
         <activity android:name=".net.NetTestActivity">
         </activity>
 
@@ -73,7 +75,7 @@
         <activity
             android:name=".component.activity.mode.ActivitySingleInstance"
             android:launchMode="singleInstance"/>
-        <!--TaskAffinity 任务相关性-->
+        <!-- TaskAffinity 任务相关性 -->
         <activity
             android:name=".component.activity.mode.ActivityTaskAffinity"
             android:launchMode="singleTask"
@@ -82,6 +84,16 @@
             android:name=".component.activity.mode.ActivityTaskAffinity2"
             android:launchMode="singleTask"
             android:taskAffinity="study.william.dream"/>
+        <activity android:name=".component.activity.intent.IntentFilterActivity">
+        </activity>
+        <activity android:name=".view.widget.recyclerview.RecyclerViewActivity">
+        </activity>
+        <activity android:name=".component.activity.intent.IntentActivity">
+        </activity>
+        <activity android:name=".component.activity.result.ResultActivity">
+        </activity>
+        <activity android:name=".component.activity.fragment.FragmentTestActivity">
+        </activity>
     </application>
 
 </manifest>

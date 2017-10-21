@@ -6,14 +6,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.dream.william.app.BaseActivity;
+import com.dream.william.component.activity.fragment.FragmentTestActivity;
+import com.dream.william.component.activity.intent.IntentFilterActivity;
 import com.dream.william.component.activity.lifecycle.ActivityOne;
 import com.dream.william.net.NetTestActivity;
 import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;
 import com.dream.william.photophase.PhaseShowActivity;
 import com.dream.william.view.notification.NotificationActivity;
-import com.dream.william.view.widget.SearchViewActivity;
-import com.dream.william.view.widget.ToolBarActivity;
+import com.dream.william.view.widget.MainViewActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -40,8 +41,16 @@ public class MainActivity extends BaseActivity {
         int id = view.getId();
         switch (id) {
 
+            case R.id.btn_intent_filter:
+                startActivity(new Intent(this, IntentFilterActivity.class));
+                break;
+
             case R.id.btn_activity:
                 startActivity(new Intent(this, ActivityOne.class));
+                break;
+
+            case R.id.btn_fragment:
+                startActivity(new Intent(this, FragmentTestActivity.class));
                 break;
 
             case R.id.btn_service:
@@ -72,12 +81,8 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, PhaseShowActivity.class));
                 break;
 
-            case R.id.btn_tool_bar:
-                startActivity(new Intent(this, ToolBarActivity.class));
-                break;
-
-            case R.id.btn_search_view:
-                startActivity(new Intent(this, SearchViewActivity.class));
+            case R.id.btn_views:
+                startActivity(new Intent(this, MainViewActivity.class));
                 break;
 
             case R.id.btn_net_test:

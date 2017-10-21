@@ -16,19 +16,25 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".glide.GlideActivity">
+        <activity android:name=".NET.Glide.GlideActivity">
         </activity>
-        <activity android:name=".gson.GsonActivity">
+        <activity android:name=".NET.Gson.GsonActivity">
         </activity>
-        <activity android:name=".okhttp.OkhttpActivity">
+        <activity android:name=".NET.OkHttp.OkhttpActivity">
         </activity>
-        <activity android:name=".retrofit.RetrofitActivity">
+        <activity android:name=".NET.Retrofit.RetrofitActivity">
         </activity>
-        <activity android:name=".rxandroid.RxAndroidActivity">
+        <activity android:name=".RX.RxAndroid.RxAndroidActivity">
         </activity>
-        <activity android:name=".rxbinding.RxBindActivity">
+        <activity android:name=".RX.RxBinding.RxBindActivity">
         </activity>
-        <activity android:name=".rxjava.RxJavaActivity">
+        <activity android:name=".RX.RxJava.RxJavaActivity">
+        </activity>
+        <activity android:name=".DB.ObjectBox.ObjectBoxActivity">
+        </activity>
+        <activity android:name=".DB.Realm.RealmActivity">
+        </activity>
+        <activity android:name=".DB.Room.RoomActivity">
         </activity>
     </application>
 

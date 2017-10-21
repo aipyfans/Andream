@@ -22,8 +22,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:autoLink="web"
         android:gravity="center"
-        android:text="I'm a first activity \n 主要测试Activity的生命周期及其配置"
+        android:text="I'm a first activity \n 主要测试Activity的生命周期及其配置\nhttps://developer.android.google.cn/guide/components/activities.html"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
@@ -69,6 +70,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_zero"/>
+
+
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:onClick="onClick"
+        android:text="Enter Result Activity"
+        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_config"/>
 
 
 </android.support.constraint.ConstraintLayout>

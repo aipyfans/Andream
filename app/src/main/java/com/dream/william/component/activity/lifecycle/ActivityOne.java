@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.component.activity.result.ResultActivity;
 
 public class ActivityOne extends BaseActivity {
 
@@ -50,6 +51,10 @@ public class ActivityOne extends BaseActivity {
 
             case R.id.btn_config:
                 startActivity(new Intent(this, ActivityConfig.class));
+                break;
+
+            case R.id.btn_result:
+                startActivity(new Intent(this, ResultActivity.class));
                 break;
         }
     }

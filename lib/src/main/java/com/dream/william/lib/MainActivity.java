@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dream.william.lib.app.BaseActivity;
-import com.dream.william.lib.glide.GlideActivity;
-import com.dream.william.lib.gson.GsonActivity;
-import com.dream.william.lib.okhttp.OkhttpActivity;
-import com.dream.william.lib.retrofit.RetrofitActivity;
-import com.dream.william.lib.rxandroid.RxAndroidActivity;
-import com.dream.william.lib.rxbinding.RxBindActivity;
-import com.dream.william.lib.rxjava.RxJavaActivity;
+import com.dream.william.lib.NET.Glide.GlideActivity;
+import com.dream.william.lib.NET.Gson.GsonActivity;
+import com.dream.william.lib.NET.OkHttp.OkhttpActivity;
+import com.dream.william.lib.NET.Retrofit.RetrofitActivity;
+import com.dream.william.lib.RX.RxAndroid.RxAndroidActivity;
+import com.dream.william.lib.RX.RxBinding.RxBindActivity;
+import com.dream.william.lib.RX.RxJava.RxJavaActivity;
 
 public class MainActivity extends BaseActivity {
 
