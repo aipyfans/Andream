@@ -14,7 +14,7 @@ import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;
 import com.dream.william.photophase.PhaseShowActivity;
 import com.dream.william.view.notification.NotificationActivity;
-import com.dream.william.view.widget.MainViewActivity;
+import com.dream.william.view.MainViewActivity;
 
 public class MainActivity extends BaseActivity {
 

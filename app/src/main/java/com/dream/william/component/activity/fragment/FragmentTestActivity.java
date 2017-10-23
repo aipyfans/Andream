@@ -2,6 +2,7 @@ package com.dream.william.component.activity.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,9 +19,11 @@ import com.dream.william.app.BaseActivity;
 public class FragmentTestActivity extends BaseActivity {
 
     private FragmentManager mFragmentManager;
-
     private FragmentTransaction mFragmentTransaction;
-    private Toolbar mTbBar;
+
+    private Toolbar tbBar;
+
+    DialogProgressFragment fragment = DialogProgressFragment.newInstance();
 
 
     @Override
@@ -30,18 +33,17 @@ public class FragmentTestActivity extends BaseActivity {
         setContentView(R.layout.activity_fragment_test);
 
 
-        mTbBar = (Toolbar) findViewById(R.id.tb_bar);
-        mTbBar.setTitle("Fragment Activity");
+        tbBar = (Toolbar) findViewById(R.id.tb_bar);
+        tbBar.setTitle("Fragment Activity");
 
-        setSupportActionBar(mTbBar);
+        setSupportActionBar(tbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mTbBar.setNavigationOnClickListener(new View.OnClickListener() {
+        tbBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
 
         if (savedInstanceState == null) {
             mFragmentManager = getSupportFragmentManager();
@@ -56,12 +58,28 @@ public class FragmentTestActivity extends BaseActivity {
         Log.e(TAG, "[onCreate] End");
     }
 
+
+    public void onClick(View view){
+        fragment.show(getSupportFragmentManager(), "progressDialog");
+        new Thread() {
+            public void run() {
+                SystemClock.sleep(5000);
+                if (fragment == null) {
+                    fragment = (DialogProgressFragment) getSupportFragmentManager().findFragmentByTag("progressDialog");
+                }
+                fragment.dismiss();
+            }
+        }.start();
+    }
+
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         Log.e(TAG, "[onPostCreate] Begin");
         super.onPostCreate(savedInstanceState);
         Log.e(TAG, "[onPostCreate] End");
     }
+
 
     @Override
     public void onAttachFragment(Fragment fragment) {
@@ -70,12 +88,14 @@ public class FragmentTestActivity extends BaseActivity {
         Log.e(TAG, "[onAttachFragment] End");
     }
 
+
     @Override
     protected void onRestart() {
         Log.e(TAG, "[onRestart] Begin");
         super.onRestart();
         Log.e(TAG, "[onRestart] End");
     }
+
 
     @Override
     protected void onStart() {
@@ -84,12 +104,14 @@ public class FragmentTestActivity extends BaseActivity {
         Log.e(TAG, "[onStart] End");
     }
 
+
     @Override
     protected void onResume() {
         Log.e(TAG, "[onResume] Begin");
         super.onResume();
         Log.e(TAG, "[onResume] End");
     }
+
 
     @Override
     public void onAttachedToWindow() {
@@ -98,12 +120,14 @@ public class FragmentTestActivity extends BaseActivity {
         Log.e(TAG, "[onAttachedToWindow] End");
     }
 
+
     @Override
     protected void onPostResume() {
         Log.e(TAG, "[onPostResume] Begin");
         super.onPostResume();
         Log.e(TAG, "[onPostResume] End");
     }
+
 
     @Override
     protected void onPause() {
@@ -112,12 +136,14 @@ public class FragmentTestActivity extends BaseActivity {
         Log.e(TAG, "[onPause] End");
     }
 
+
     @Override
     protected void onStop() {
         Log.e(TAG, "[onStop] Begin");
         super.onStop();
         Log.e(TAG, "[onStop] End");
     }
+
 
     @Override
     protected void onDestroy() {

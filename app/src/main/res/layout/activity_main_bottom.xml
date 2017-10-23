@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dream.william.component.activity.fragment.FragmentTestActivity">
+    tools:context="com.dream.william.view.main.MainBottomActivity">
 
 
     <include
@@ -17,26 +17,28 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/btn_dialog_fragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Show Dialog fragment"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
-
-
-    <FrameLayout
-        android:id="@+id/fl_container"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bnv_nav"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_bar"
+        app:layout_constraintVertical_bias="0.501"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bnv_nav"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@android:color/holo_red_dark"
+        app:itemIconTint="@drawable/selector_bottom_navigation"
+        app:itemTextColor="@drawable/selector_bottom_navigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_dialog_fragment"/>
+        app:menu="@menu/menu_main_bottom"/>
 
 
 </android.support.constraint.ConstraintLayout>

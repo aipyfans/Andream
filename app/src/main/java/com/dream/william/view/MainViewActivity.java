@@ -1,4 +1,4 @@
-package com.dream.william.view.widget;
+package com.dream.william.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.view.main.MainUIActivity;
+import com.dream.william.view.widget.ToolBarActivity;
 import com.dream.william.view.widget.recyclerview.RecyclerViewActivity;
 
 public class MainViewActivity extends BaseActivity {
@@ -42,9 +44,14 @@ public class MainViewActivity extends BaseActivity {
         int id = view.getId();
         switch (id) {
 
+            case R.id.btn_ui:
+                startActivity(new Intent(this, MainUIActivity.class));
+                break;
+
             case R.id.btn_tool_bar:
                 startActivity(new Intent(this, ToolBarActivity.class));
                 break;
+
             case R.id.btn_search_view:
                 startActivity(new Intent(this, RecyclerViewActivity.class));
                 break;

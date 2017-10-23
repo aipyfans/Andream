@@ -20,9 +20,22 @@
     <string name="pref_disposition_description">长按一个画框并拖放其边界。左右滑动以显示已定义的模板</string>
     <string name="pref_disposition_unable_delete_advise">无法删除选定的画框</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="str_enter_second">Enter Second Fragment \n [注意] 添加Fragment1时,不调用addToBackStack()方法, \n 当前Fragment1 的生命周期会调用到onDetach()终止 \n Fragment的实例和视图都会销毁</string>
     <string name="str_enter_third">Enter Second Fragment \n [注意] 添加Fragment3时,调用addToBackStack() 后 , \n 当前Fragment2 的生命周期会调用到onDestroyView()终止 \n Fragment的实例不会销毁,视图会销毁</string>
     <string name="str_pop_first">Pop Back First \n 到此如果点击回退键的话,直接将Fragment1推出"回退栈", \n 但仍然显示当前Fragment3的View,注意观察生命周期的日志</string>
+
+
+    <array name="main_menu">
+        <item>视频</item>
+        <item>直播</item>
+        <item>轻应用</item>
+        <item>我的</item>
+    </array>
+
+    <string name="main_menu_item1">视频</string>
+    <string name="main_menu_item2">直播</string>
+    <string name="main_menu_item3">轻应用</string>
+    <string name="main_menu_item4">我的</string>
+
 
 </resources>

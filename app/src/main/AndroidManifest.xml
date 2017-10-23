@@ -49,7 +49,7 @@
         </activity>
         <activity android:name=".view.widget.TextViewActivity">
         </activity>
-        <activity android:name=".view.widget.MainViewActivity">
+        <activity android:name=".view.MainViewActivity">
         </activity>
         <activity android:name=".net.NetTestActivity">
         </activity>
@@ -93,6 +93,14 @@
         <activity android:name=".component.activity.result.ResultActivity">
         </activity>
         <activity android:name=".component.activity.fragment.FragmentTestActivity">
+        </activity>
+        <activity android:name=".view.main.MainUIActivity">
+        </activity>
+        <activity android:name=".view.main.MainBottomActivity">
+        </activity>
+        <activity android:name=".view.main.MainSlideActivity">
+        </activity>
+        <activity android:name=".view.main.MainBSActivity">
         </activity>
     </application>
 
