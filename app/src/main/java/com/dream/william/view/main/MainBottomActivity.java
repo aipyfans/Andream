@@ -12,7 +12,8 @@ import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 
 public class MainBottomActivity extends BaseActivity
-        implements BottomNavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener {
+        implements BottomNavigationView.OnNavigationItemSelectedListener,
+        BottomNavigationView.OnNavigationItemReselectedListener,ViewPager.OnPageChangeListener {
 
     private Toolbar tbBar;
     private ViewPager vpFragment;
@@ -40,11 +41,12 @@ public class MainBottomActivity extends BaseActivity
         });
 
         String[] tabs = getResources().getStringArray(R.array.main_menu);
-        LazyPagerAdapter lazyPagerAdapter = new LazyPagerAdapter(getSupportFragmentManager(),tabs);
+        LazyPagerAdapter lazyPagerAdapter = new LazyPagerAdapter(getSupportFragmentManager(), tabs);
 
         vpFragment = (ViewPager) findViewById(R.id.vp_fragment);
         vpFragment.setAdapter(lazyPagerAdapter);
         vpFragment.setOffscreenPageLimit(3);
+        vpFragment.addOnPageChangeListener(this);
 
         bnvNavigation = (BottomNavigationView) findViewById(R.id.bnv_nav);
         bnvNavigation.setOnNavigationItemSelectedListener(this);
@@ -52,16 +54,58 @@ public class MainBottomActivity extends BaseActivity
 
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
 
     @Override
-    public void onNavigationItemReselected(@NonNull MenuItem item) {
+    public void onPageSelected(int position) {
+        switch (position){
+            case 0:
+                bnvNavigation.setSelectedItemId(R.id.item1);
+                break;
+            case 1:
+                bnvNavigation.setSelectedItemId(R.id.item2);
+                break;
+            case 2:
+                bnvNavigation.setSelectedItemId(R.id.item3);
+                break;
+            case 3:
+                bnvNavigation.setSelectedItemId(R.id.item4);
+                break;
+        }
+    }
 
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.item1:
+                vpFragment.setCurrentItem(0);
+                break;
+            case R.id.item2:
+                vpFragment.setCurrentItem(1);
+                break;
+            case R.id.item3:
+                vpFragment.setCurrentItem(2);
+                break;
+            case R.id.item4:
+                vpFragment.setCurrentItem(3);
+                break;
+        }
+        return true;
     }
 
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+    public void onNavigationItemReselected(@NonNull MenuItem item) {
+
     }
 
 }
