@@ -58,7 +58,7 @@
 
             </LinearLayout>
 
-            <com.dream.william.view.custom.canvas.Drawer
+            <com.dream.william.view.custom.canvas.DrawShape
                 android:id="@+id/d_view"
                 android:layout_width="match_parent"
                 android:layout_height="10000dp"/>

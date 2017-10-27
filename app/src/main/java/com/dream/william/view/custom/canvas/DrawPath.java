@@ -13,7 +13,7 @@ import android.view.View;
  * Created by william on 10/26/17.
  */
 
-public class Drawer extends View {
+public class DrawPath extends View {
 
     private Paint mPaintText;
     private Paint mPaintPoint;
@@ -23,17 +23,17 @@ public class Drawer extends View {
     private Paint mPaintShapeFS;
 
 
-    public Drawer(Context context) {
+    public DrawPath(Context context) {
         this(context, null);
     }
 
 
-    public Drawer(Context context, @Nullable AttributeSet attrs) {
+    public DrawPath(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
 
-    public Drawer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DrawPath(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
