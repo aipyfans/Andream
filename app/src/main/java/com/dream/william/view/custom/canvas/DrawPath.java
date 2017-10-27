@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -15,12 +15,8 @@ import android.view.View;
 
 public class DrawPath extends View {
 
-    private Paint mPaintText;
-    private Paint mPaintPoint;
-    private Paint mPaintLine;
-    private Paint mPaintShapeFill;
-    private Paint mPaintShapeStroke;
-    private Paint mPaintShapeFS;
+    private Paint mPaint;
+    private Path mPath = new Path(); // 初始化 Path 对象
 
 
     public DrawPath(Context context) {
@@ -40,32 +36,9 @@ public class DrawPath extends View {
 
 
     private void init() {
-        mPaintText = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintText.setTextSize(64);
-        mPaintText.setColor(Color.RED);
-
-        mPaintPoint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintPoint.setColor(Color.RED);
-        mPaintPoint.setStrokeWidth(48);
-
-
-        mPaintLine = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintLine.setColor(Color.MAGENTA);
-        mPaintLine.setStyle(Paint.Style.STROKE);
-        mPaintLine.setStrokeWidth(8);
-
-        mPaintShapeFill = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintShapeFill.setColor(Color.BLUE);
-        mPaintShapeFill.setStyle(Paint.Style.FILL);
-
-        mPaintShapeStroke = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintShapeStroke.setColor(Color.GREEN);
-        mPaintShapeStroke.setStyle(Paint.Style.STROKE);
-        mPaintShapeStroke.setStrokeWidth(8);
-
-        mPaintShapeFS = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaintShapeFS.setColor(Color.RED);
-        mPaintShapeFS.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaint.setTextSize(64);
+        mPaint.setColor(Color.RED);
     }
 
 
@@ -74,78 +47,31 @@ public class DrawPath extends View {
         super.onDraw(canvas);
 
         // (100,100)
-        canvas.drawText("drawCircle", 100, 100, mPaintText);
+//        canvas.drawText("Canvas-drawPath", 100, 100, mPaint);
 
-        // (200,300)
-        canvas.drawCircle(200, 300, 100, mPaintShapeFill);
-
-        // (450,300)
-        canvas.drawCircle(450, 300, 100, mPaintShapeStroke);
-
-        // (700,300)
-        canvas.drawCircle(700, 300, 100, mPaintShapeFS);
+        // 绘制心形
+//        mPath.addArc(200, 200, 400, 400, -225, 225);
+//        mPath.arcTo(400, 200, 600, 400, -180, 225, false);
+//        mPath.lineTo(400, 542);
 
 
-        // (100,500)
-        canvas.drawText("drawPoint", 100, 500, mPaintText);
-
-        // (200,600) 圆头 (ROUND)
-        mPaintPoint.setStrokeCap(Paint.Cap.ROUND);
-        mPaintPoint.setStrokeWidth(48);
-        canvas.drawPoint(200, 600, mPaintPoint);
-
-        // (400,600) 平头 (BUTT)
-        mPaintPoint.setStrokeCap(Paint.Cap.BUTT);
-        canvas.drawPoint(400, 600, mPaintPoint);
-
-        // (600,600)  方头 (SQUARE)
-        mPaintPoint.setStrokeCap(Paint.Cap.SQUARE);
-        canvas.drawPoint(600, 600, mPaintPoint);
+        // (100,200)
+        canvas.drawText("Path-addXxx() ", 100, 200, mPaint);
+        mPath.addCircle(200,400,100, Path.Direction.CW);
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.drawPath(mPath, mPaint);
 
 
-        // (100,850)
-        canvas.drawText("drawPoints", 100, 750, mPaintText);
-        float[] points = {
-                200, 850, 400, 850, 600, 850,
-                200, 950, 400, 950, 600, 950,
-                200, 1050, 400, 1050, 600, 1050
-        };
-        mPaintPoint.setStrokeCap(Paint.Cap.ROUND);
-        canvas.drawPoints(points, 2, 8, mPaintPoint);
+        // (100,600)
+        canvas.drawText("Path-xxxTo()", 100, 600, mPaint);
+        mPath.moveTo(100,700);
+        mPath.lineTo(200,700);
+        mPath.rLineTo(-100,100);
+        mPath.rLineTo(100,0);
 
 
-        // (100,1200)
-        canvas.drawText("drawOval", 100, 1200, mPaintText);
-        // (100,1300)
-        canvas.drawOval(100, 1300, 300, 1450, mPaintShapeFill);
-
-        RectF oval = new RectF(400, 1300, 600, 1450);
-        canvas.drawOval(oval, mPaintShapeStroke);
-
-
-        // (100,1600)
-        canvas.drawText("drawLine", 100, 1600, mPaintText);
-        canvas.drawLine(200, 1700, 600, 2000, mPaintLine);
-
-        float[] pointsLine = {200, 1700, 600, 1700, 600, 2000, 200, 2000};
-        canvas.drawLines(pointsLine, mPaintLine);
-
-
-        // (100,2100)
-        canvas.drawText("drawRoundRect", 100, 2100, mPaintText);
-        canvas.drawRoundRect(100, 2200, 300, 2300, 20, 20, mPaintShapeFill);
-
-        RectF roundRect = new RectF(400, 2200, 600, 2300);
-        canvas.drawRoundRect(roundRect, 20, 20, mPaintShapeStroke);
-
-
-        // (100,2400)
-        canvas.drawText("drawArc", 100, 2400, mPaintText);
-        // 绘制扇形
-        canvas.drawArc(100, 2500, 700, 2900, -110, 100, true, mPaintShapeFill);
-        // 绘制弧形
-        canvas.drawArc(100, 2500, 700, 2900, 20, 140, false, mPaintShapeFill);
-        // 画线模式
-        canvas.drawArc(100, 2500, 700, 2900, 180, 60, false, mPaintShapeStroke);
+        mPath.lineTo(100, 100);
+        mPath.arcTo(100, 100, 300, 300, -90, 90, true); // 强制移动到弧形起点（无痕迹）
+        canvas.drawPath(mPath, mPaint);
     }
 }
