@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.view.custom.CustomViewActivity;
 import com.dream.william.view.main.MainUIActivity;
 import com.dream.william.view.widget.ToolBarActivity;
 import com.dream.william.view.widget.recyclerview.RecyclerViewActivity;
@@ -55,6 +56,12 @@ public class MainViewActivity extends BaseActivity {
             case R.id.btn_search_view:
                 startActivity(new Intent(this, RecyclerViewActivity.class));
                 break;
+
+            case R.id.btn_custom_view:
+                startActivity(new Intent(this, CustomViewActivity.class));
+                break;
+
+
 
         }
     }
