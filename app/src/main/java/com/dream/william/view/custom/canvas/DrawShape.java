@@ -1,13 +1,18 @@
 package com.dream.william.view.custom.canvas;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.dream.william.R;
 
 /**
  * Created by william on 10/26/17.
@@ -147,5 +152,16 @@ public class DrawShape extends View {
         canvas.drawArc(100, 2500, 700, 2900, 20, 140, false, mPaintShapeFill);
         // 画线模式
         canvas.drawArc(100, 2500, 700, 2900, 180, 60, false, mPaintShapeStroke);
+
+        // (100,3050)
+        canvas.drawText("drawBitmap", 100, 3050, mPaintText);
+        Bitmap avatarBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.avatar);
+        canvas.drawBitmap(avatarBitmap, 200, 3200, mPaintLine);
+
+        Rect rectDst = new Rect(600, 3200, 800, 3400);
+        canvas.drawBitmap(avatarBitmap, null, rectDst, mPaintLine);
+
+        // (100,3450)
+        canvas.drawText("drawText", 100, 3450, mPaintText);
     }
 }

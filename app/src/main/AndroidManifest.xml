@@ -84,26 +84,39 @@
             android:name=".component.activity.mode.ActivityTaskAffinity2"
             android:launchMode="singleTask"
             android:taskAffinity="study.william.dream"/>
-        <activity android:name=".component.activity.intent.IntentFilterActivity">
-        </activity>
-        <activity android:name=".view.widget.recyclerview.RecyclerViewActivity">
-        </activity>
-        <activity android:name=".component.activity.intent.IntentActivity">
-        </activity>
-        <activity android:name=".component.activity.result.ResultActivity">
-        </activity>
-        <activity android:name=".component.activity.fragment.FragmentTestActivity">
-        </activity>
-        <activity android:name=".view.main.MainUIActivity">
-        </activity>
-        <activity android:name=".view.main.MainBottomActivity">
-        </activity>
-        <activity android:name=".view.main.MainSlideActivity">
-        </activity>
-        <activity android:name=".view.main.MainBSActivity">
-        </activity>
-        <activity android:name=".view.custom.CustomViewActivity">
-        </activity>
+        <activity
+            android:name=".component.activity.intent.IntentFilterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.widget.recyclerview.RecyclerViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".component.activity.intent.IntentActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".component.activity.result.ResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".component.activity.fragment.FragmentTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.main.MainUIActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.main.MainBottomActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.main.MainSlideActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.main.MainBSActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.custom.CustomViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.custom.hencoder.HenCoder1Activity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
