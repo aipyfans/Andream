@@ -45,7 +45,7 @@
         <activity
             android:name=".view.widget.SearchViewActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.widget.WebViewActivity">
+        <activity android:name=".view.widget.WebView.WebViewActivity">
         </activity>
         <activity android:name=".view.widget.TextViewActivity">
         </activity>
@@ -88,7 +88,7 @@
             android:name=".component.activity.intent.IntentFilterActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".view.widget.recyclerview.RecyclerViewActivity"
+            android:name=".view.widget.RecyclerView.RecyclerViewActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".component.activity.intent.IntentActivity"
@@ -117,6 +117,8 @@
         <activity
             android:name=".view.custom.hencoder.HenCoder1Activity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.widget.WebView.Web2JsActivity">
+        </activity>
     </application>
 
 </manifest>

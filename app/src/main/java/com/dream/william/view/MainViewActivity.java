@@ -9,9 +9,10 @@ import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 import com.dream.william.view.custom.CustomViewActivity;
 import com.dream.william.view.main.MainUIActivity;
+import com.dream.william.view.widget.RecyclerView.RecyclerViewActivity;
 import com.dream.william.view.widget.ToolBarActivity;
-import com.dream.william.view.widget.WebViewActivity;
-import com.dream.william.view.widget.recyclerview.RecyclerViewActivity;
+import com.dream.william.view.widget.WebView.Web2JsActivity;
+import com.dream.william.view.widget.WebView.WebViewActivity;
 
 public class MainViewActivity extends BaseActivity {
 
@@ -28,7 +29,7 @@ public class MainViewActivity extends BaseActivity {
     }
 
     private void initView() {
-        mTbBar = (Toolbar) findViewById(R.id.tb_bar);
+        mTbBar =  findViewById(R.id.tb_bar);
         mTbBar.setTitle("Views");
 
         setSupportActionBar(mTbBar);
@@ -55,7 +56,11 @@ public class MainViewActivity extends BaseActivity {
                 break;
 
             case R.id.btn_web_view:
-                WebViewActivity.startActionWv(this,"https://www.hao123.com/");
+                WebViewActivity.startActionWv(this,"https://www.baidu.com/");
+                break;
+
+            case R.id.btn_web_js:
+                startActivity(new Intent(this, Web2JsActivity.class));
                 break;
 
             case R.id.btn_search_view:

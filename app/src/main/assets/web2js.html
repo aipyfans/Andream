@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Web@JS</title>
+
+        <script>
+            // Android需要调用的方法
+           function callJS(){
+              alert("Android调用了JS的callJS方法");
+           }
+
+           function callNativeOne(){
+                // 由于对象映射，所以调用[web2js]对象等于调用Android映射的对象
+                web2js.hello("js调用了Native中的hello方法");
+            }
+
+           function callNativeTwo(){
+                /*约定的url协议为：js://webview?arg1=111&arg2=222 */
+                document.location = "js://webview?arg1=111&arg2=222";
+            }
+
+           function callNativeThree(){
+                // 调用 prompt（）
+                var result=prompt("js://prompt?arg1=111&arg2=222");
+                alert("demo " + result);
+            }
+
+        </script>
+
+    </head>
+
+    <body style="background:pink">
+
+        优点：使用简单:仅将Android对象和JS对象映射即可
+        <br>
+        缺点：存在严重的漏洞问题
+        <button type="button" id="btn_one" onclick="callNativeOne()">CallNative by WebView.addJavascriptInterface()</button>
+
+        <br>
+        优点：不存在方式上1的漏洞；
+        <br>
+        缺点：JS获取Android方法的返回值复杂<br>
+        如果JS想要得到Android方法的返回值，只能通过 WebView 的 loadUrl()去执行 JS 方法把返回值传递回去<br>
+        <button type="button" id="btn_two" onclick="callNativeTwo()">CallNative by WebViewClient.shouldOverrideUrlLoading()</button>
+
+        <br>
+        常用的拦截是：拦截 JS的输入框（即prompt()方法） 因为只有prompt()可以返回任意类型的值，操作最全面方便、更加灵活；
+        <br>
+        而alert()对话框没有返回值；confirm()对话框只能返回两种状态（确定 / 取消）两个值
+        <button type="button" id="btn_three" onclick="callNativeThree()">CallNative by WebChromeClient.onJsPrompt()</button>
+
+
+    </body>
+
+</html>
