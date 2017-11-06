@@ -10,6 +10,7 @@ import com.dream.william.app.BaseActivity;
 import com.dream.william.view.custom.CustomViewActivity;
 import com.dream.william.view.main.MainUIActivity;
 import com.dream.william.view.widget.ToolBarActivity;
+import com.dream.william.view.widget.WebViewActivity;
 import com.dream.william.view.widget.recyclerview.RecyclerViewActivity;
 
 public class MainViewActivity extends BaseActivity {
@@ -51,6 +52,10 @@ public class MainViewActivity extends BaseActivity {
 
             case R.id.btn_tool_bar:
                 startActivity(new Intent(this, ToolBarActivity.class));
+                break;
+
+            case R.id.btn_web_view:
+                WebViewActivity.startActionWv(this,"https://www.hao123.com/");
                 break;
 
             case R.id.btn_search_view:
