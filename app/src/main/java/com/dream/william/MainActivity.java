@@ -9,12 +9,13 @@ import com.dream.william.app.BaseActivity;
 import com.dream.william.component.activity.fragment.FragmentTestActivity;
 import com.dream.william.component.activity.intent.IntentFilterActivity;
 import com.dream.william.component.activity.lifecycle.ActivityOne;
+import com.dream.william.mechanism.MechanismActivity;
 import com.dream.william.net.NetTestActivity;
 import com.dream.william.photophase.PhaseActivity;
 import com.dream.william.photophase.PhaseEditActivity;
 import com.dream.william.photophase.PhaseShowActivity;
-import com.dream.william.view.notification.NotificationActivity;
 import com.dream.william.view.MainViewActivity;
+import com.dream.william.view.notification.NotificationActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        mTbBar = (Toolbar) findViewById(R.id.tb_bar);
+        mTbBar = findViewById(R.id.tb_bar);
         mTbBar.setNavigationIcon(R.mipmap.ic_launcher_round);
         setSupportActionBar(mTbBar);
     }
@@ -40,6 +41,10 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
+
+            case R.id.btn_mechanism:
+                startActivity(new Intent(this, MechanismActivity.class));
+                break;
 
             case R.id.btn_intent_filter:
                 startActivity(new Intent(this, IntentFilterActivity.class));

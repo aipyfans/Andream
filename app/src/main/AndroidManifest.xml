@@ -117,8 +117,18 @@
         <activity
             android:name=".view.custom.hencoder.HenCoder1Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.widget.WebView.Web2JsActivity">
-        </activity>
+        <activity
+            android:name=".view.widget.WebView.Web2JsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mechanism.MechanismActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mechanism.HandlerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mechanism.BinderActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
