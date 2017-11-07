@@ -10,6 +10,9 @@ import android.widget.TextView;
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 
+/**
+ * http://www.jianshu.com/p/9fe944ee02f7
+ */
 public class HandlerActivity extends BaseActivity {
 
     private Toolbar tbBar;

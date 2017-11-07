@@ -18,6 +18,17 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:id="@+id/tv_web"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:gravity="center"
+        android:text="Handler异步通信机制 \n http://www.jianshu.com/p/9fe944ee02f7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
+
+    <TextView
         android:id="@+id/tv_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,7 +38,7 @@
         android:text="Handler | Looper | Message | MessageQueue"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_web"/>
 
     <Button
         android:id="@+id/btn_send_msg1"
@@ -50,5 +61,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_send_msg1"/>
+
 
 </android.support.constraint.ConstraintLayout>
