@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
+import com.dream.william.view.widget.TabLayoutActivity;
 
 public class MainUIActivity extends BaseActivity {
 
@@ -45,6 +46,11 @@ public class MainUIActivity extends BaseActivity {
             case R.id.btn_nav_slide:
                 startActivity(new Intent(this, MainBSActivity.class));
                 break;
+            case R.id.btn_nav_tab:
+                startActivity(new Intent(this, TabLayoutActivity.class));
+                break;
+
+
         }
     }
 

@@ -28,7 +28,7 @@ public class MainBottomActivity extends BaseActivity
 
 
     private void initView() {
-        tbBar = (Toolbar) findViewById(R.id.tb_bar);
+        tbBar =  findViewById(R.id.tb_bar);
         tbBar.setTitle("Bottom UI Architecture");
 
         setSupportActionBar(tbBar);
@@ -43,12 +43,12 @@ public class MainBottomActivity extends BaseActivity
         String[] tabs = getResources().getStringArray(R.array.main_menu);
         LazyPagerAdapter lazyPagerAdapter = new LazyPagerAdapter(getSupportFragmentManager(), tabs);
 
-        vpFragment = (ViewPager) findViewById(R.id.vp_fragment);
+        vpFragment =  findViewById(R.id.vp_fragment);
         vpFragment.setAdapter(lazyPagerAdapter);
         vpFragment.setOffscreenPageLimit(3);
         vpFragment.addOnPageChangeListener(this);
 
-        bnvNavigation = (BottomNavigationView) findViewById(R.id.bnv_nav);
+        bnvNavigation =  findViewById(R.id.bnv_nav);
         bnvNavigation.setOnNavigationItemSelectedListener(this);
         bnvNavigation.setOnNavigationItemReselectedListener(this);
 

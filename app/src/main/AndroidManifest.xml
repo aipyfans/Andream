@@ -129,6 +129,8 @@
         <activity
             android:name=".mechanism.BinderActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.widget.TabLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

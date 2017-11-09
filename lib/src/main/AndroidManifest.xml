@@ -20,49 +20,43 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".NET.Glide.GlideActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".NET.Gson.GsonActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".NET.OkHttp.OkhttpActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".NET.Retrofit.RetrofitActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".RX.RxAndroid.RxAndroidActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".RX.RxBinding.RxBindActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".RX.RxJava.RxJavaActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".DB.ObjectBox.ObjectBoxActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".DB.Realm.RealmActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".DB.Room.RoomActivity"
             android:screenOrientation="portrait"/>
-
         <activity
             android:name=".NET.Glide.GlideDemoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".LOG.logger.LoggerActivity">
+        </activity>
+        <activity android:name=".LOG.timber.TimberActivity">
+        </activity>
     </application>
 
 </manifest>

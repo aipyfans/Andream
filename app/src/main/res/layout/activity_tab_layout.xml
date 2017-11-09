@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dream.william.view.main.MainUIActivity">
-
+    tools:context="com.dream.william.view.widget.TabLayoutActivity">
 
     <include
         android:id="@+id/tb_bar"
@@ -17,61 +16,59 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/btn_wechat"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_with_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="仿微信主页面导航 - [ 懒加载 ]"
-        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
+        app:layout_constraintTop_toBottomOf="@+id/tb_bar"
+        app:tabIndicatorColor="@color/color_primary"
+        app:tabIndicatorHeight="4dp"
+        app:tabMaxWidth="80dp"
+        app:tabMinWidth="48dp"
+        app:tabMode="scrollable"
+        app:tabPadding="8dp"
+        app:tabSelectedTextColor="@color/color_primary"
+        app:tabTextColor="@color/accent"/>
 
-    <Button
-        android:id="@+id/btn_slider"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="侧边栏导航"
-        android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_wechat"/>
 
-    <Button
-        android:id="@+id/btn_nav_slide"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_with_icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="[底边栏] + [侧边栏] 导航"
-        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_slider"/>
+        app:layout_constraintTop_toBottomOf="@+id/tl_with_text"
+        android:background="@color/accent"
+        app:tabGravity="center"
+        app:tabMode="fixed"/>
 
-    <Button
-        android:id="@+id/btn_nav_tab"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_with_text_icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="[TabLayout] 导航"
-        android:textAllCaps="false"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_nav_slide"/>
+        app:layout_constraintTop_toBottomOf="@+id/tl_with_icon"
+        app:tabBackground="@color/color_primary"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/accent"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_fragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_with_text_icon"/>
 
 
 </android.support.constraint.ConstraintLayout>
