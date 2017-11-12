@@ -30,6 +30,7 @@
         app:tabMinWidth="48dp"
         app:tabMode="scrollable"
         app:tabPadding="8dp"
+        app:tabGravity="center"
         app:tabSelectedTextColor="@color/color_primary"
         app:tabTextColor="@color/accent"/>
 

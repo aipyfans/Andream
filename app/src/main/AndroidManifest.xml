@@ -45,14 +45,18 @@
         <activity
             android:name=".view.widget.SearchViewActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.widget.WebView.WebViewActivity">
-        </activity>
-        <activity android:name=".view.widget.TextViewActivity">
-        </activity>
-        <activity android:name=".view.MainViewActivity">
-        </activity>
-        <activity android:name=".net.NetTestActivity">
-        </activity>
+        <activity
+            android:name=".view.widget.WebView.WebViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.widget.TextViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.MainViewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".net.NetTestActivity"
+            android:screenOrientation="portrait"/>
 
         <!-- Activity的生命周期 -->
         <activity android:name=".component.activity.lifecycle.ActivityOne"/>
@@ -129,8 +133,12 @@
         <activity
             android:name=".mechanism.BinderActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.widget.TabLayoutActivity">
-        </activity>
+        <activity
+            android:name=".view.widget.TabLayoutActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mechanism.EventActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

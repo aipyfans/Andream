@@ -49,6 +49,10 @@ public class MechanismActivity extends BaseActivity {
                 startActivity(new Intent(this, BinderActivity.class));
                 break;
 
+            case R.id.btn_event:
+                startActivity(new Intent(this, EventActivity.class));
+                break;
+
         }
     }
 
