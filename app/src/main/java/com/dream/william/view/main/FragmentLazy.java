@@ -91,7 +91,7 @@ public class FragmentLazy extends Fragment {
                             View emptyView = mRootView.findViewById(R.id.tv_lazy_load);
                             emptyView.setVisibility(View.GONE);
 
-                            TextView text = (TextView) mRootView.findViewById(R.id.tv_data);
+                            TextView text = mRootView.findViewById(R.id.tv_data);
                             text.setText(mTitle);
                             text.setVisibility(View.VISIBLE);
                         }

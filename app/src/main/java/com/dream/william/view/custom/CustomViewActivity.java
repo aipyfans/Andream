@@ -8,6 +8,9 @@ import android.view.View;
 import com.dream.william.R;
 import com.dream.william.app.BaseActivity;
 import com.dream.william.view.custom.hencoder.HenCoder1Activity;
+import com.dream.william.view.custom.hencoder.HenCoder2Activity;
+import com.dream.william.view.custom.hencoder.HenCoder3Activity;
+import com.dream.william.view.custom.hencoder.HenCoder4Activity;
 
 public class CustomViewActivity extends BaseActivity {
 
@@ -44,8 +47,20 @@ public class CustomViewActivity extends BaseActivity {
         int id = view.getId();
         switch (id) {
 
-            case R.id.btn_draw:
+            case R.id.btn_hc_01:
                 startActivity(new Intent(this, HenCoder1Activity.class));
+                break;
+
+            case R.id.btn_hc_02:
+                startActivity(new Intent(this, HenCoder2Activity.class));
+                break;
+
+            case R.id.btn_hc_03:
+                startActivity(new Intent(this, HenCoder3Activity.class));
+                break;
+
+            case R.id.btn_hc_04:
+                startActivity(new Intent(this, HenCoder4Activity.class));
                 break;
 
         }

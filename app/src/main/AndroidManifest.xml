@@ -119,9 +119,6 @@
             android:name=".view.custom.CustomViewActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".view.custom.hencoder.HenCoder1Activity"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".view.widget.WebView.Web2JsActivity"
             android:screenOrientation="portrait"/>
         <activity
@@ -138,6 +135,19 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".mechanism.EventActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".view.custom.hencoder.HenCoder1Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.custom.hencoder.HenCoder2Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.custom.hencoder.HenCoder3Activity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.custom.hencoder.HenCoder4Activity"
             android:screenOrientation="portrait"/>
     </application>
 
