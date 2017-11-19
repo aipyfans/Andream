@@ -90,6 +90,11 @@ public class WebViewClienter extends WebViewClient {
         //该方法传回了错误码，根据错误类型可以进行不同的错误分类处理
     }
 
+    @Override
+    public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+        super.onReceivedError(view, errorCode, description, failingUrl);
+
+    }
 
     /**
      * 作用：处理https请求

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--WDProgressBar-->
+    <declare-styleable name="WDProgressBar">
+        <attr name="wdp_progress" format="integer"/>
+        <attr name="wdp_max" format="integer"/>
+        <attr name="wdp_progress_height" format="integer"/>
+        <attr name="wdp_progress_color" format="color"/>
+    </declare-styleable>
+
+
+</resources>

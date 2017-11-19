@@ -56,7 +56,7 @@ public class MainViewActivity extends BaseActivity {
                 break;
 
             case R.id.btn_web_view:
-                WebViewActivity.startActionWv(this,"https://www.baidu.com/");
+                WebViewActivity.startActionWv(this,"https://www.baidu.com");
                 break;
 
             case R.id.btn_web_js:

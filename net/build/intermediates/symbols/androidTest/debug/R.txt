@@ -1,3 +1,0 @@
-int string str_net_exception 0x7f020000
-int string str_net_time_out 0x7f020001
-int string str_toast_later 0x7f020002

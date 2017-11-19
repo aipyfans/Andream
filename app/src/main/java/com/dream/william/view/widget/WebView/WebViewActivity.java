@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.dream.william.R;
@@ -110,27 +109,27 @@ public class WebViewActivity extends BaseActivity {
         wvPage = findViewById(R.id.wv_page);
         setupWebSettings();
 
-        wvPage.setWebChromeClient(new WebChromeClienter());
-        wvPage.setWebViewClient(new WebViewClienter());
+//        wvPage.setWebChromeClient(new WebChromeClienter());
+//        wvPage.setWebViewClient(new WebViewClienter());
     }
 
     private void setupWebSettings() {
 
-        WebSettings webSettings = wvPage.getSettings();
+//        WebSettings webSettings = wvPage.getSettings();
 
         // 如果访问的页面中要与JavaScript交互，则WebView必须设置支持JavaScript。
         // 若加载的 html 里有JS 在执行动画等操作，会造成资源浪费（CPU、电量）.在 onStop 和 onResume 里分别把 setJavaScriptEnabled() 给设置成 false 和 true 即可
-        webSettings.setJavaScriptEnabled(true);
+//        webSettings.setJavaScriptEnabled(true);
 
         //********************************      不明白       *************************************
         // 设置自适应屏幕，两者合用
-        webSettings.setUseWideViewPort(true); //将图片调整到适合WebView的大小
-        webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+//        webSettings.setUseWideViewPort(true); //将图片调整到适合WebView的大小
+//        webSettings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
 
         //缩放操作
-        webSettings.setSupportZoom(true); //支持缩放，默认为true。是下面那个的前提。
-        webSettings.setBuiltInZoomControls(true); //设置内置的缩放控件。若为false，则该WebView不可缩放
-        webSettings.setDisplayZoomControls(false); //隐藏原生的缩放控件
+//        webSettings.setSupportZoom(true); //支持缩放，默认为true。是下面那个的前提。
+//        webSettings.setBuiltInZoomControls(true); //设置内置的缩放控件。若为false，则该WebView不可缩放
+//        webSettings.setDisplayZoomControls(false); //隐藏原生的缩放控件
 
         //***********************************************************************************
 
@@ -142,20 +141,20 @@ public class WebViewActivity extends BaseActivity {
         // LOAD_CACHE_ELSE_NETWORK，只要本地有，无论是否过期，或者no-cache，都使用缓存中的数据。
         // ***********************************************************************************
 
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);  // 不使用缓存
+//        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);  // 不使用缓存
 
-        webSettings.setDomStorageEnabled(true); // 开启 DOM storage API 功能
-        webSettings.setDatabaseEnabled(true);   // 开启 Database storage API 功能
-        webSettings.setAppCacheEnabled(true);// 开启 Application Caches 功能
-        String cacheDirPath = getFilesDir().getAbsolutePath();
-        webSettings.setAppCachePath(cacheDirPath); // 设置  Application Caches 缓存目录
+//        webSettings.setDomStorageEnabled(false); // 开启/关闭 DOM storage API 功能
+//        webSettings.setDatabaseEnabled(true);   // 开启 Database storage API 功能
+//        webSettings.setAppCacheEnabled(true);// 开启 Application Caches 功能
+//        String cacheDirPath = getFilesDir().getAbsolutePath();
+//        webSettings.setAppCachePath(cacheDirPath); // 设置  Application Caches 缓存目录
 
 
         //其他细节操作
-        webSettings.setAllowFileAccess(true); // 设置可以访问文件
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true); // 支持通过JS打开新窗口
-        webSettings.setLoadsImagesAutomatically(true); // 支持自动加载图片
-        webSettings.setDefaultTextEncodingName("utf-8");// 设置编码格式
+//        webSettings.setAllowFileAccess(true); // 设置可以访问文件
+//        webSettings.setJavaScriptCanOpenWindowsAutomatically(true); // 支持通过JS打开新窗口
+//        webSettings.setLoadsImagesAutomatically(true); // 支持自动加载图片
+//        webSettings.setDefaultTextEncodingName("utf-8");// 设置编码格式
     }
 
 
