@@ -11,6 +11,7 @@ import com.dream.william.view.custom.hencoder.HenCoder1Activity;
 import com.dream.william.view.custom.hencoder.HenCoder2Activity;
 import com.dream.william.view.custom.hencoder.HenCoder3Activity;
 import com.dream.william.view.custom.hencoder.HenCoder4Activity;
+import com.dream.william.view.custom.hencoder.HenCoder5Activity;
 
 public class CustomViewActivity extends BaseActivity {
 
@@ -61,6 +62,10 @@ public class CustomViewActivity extends BaseActivity {
 
             case R.id.btn_hc_04:
                 startActivity(new Intent(this, HenCoder4Activity.class));
+                break;
+
+            case R.id.btn_hc_05:
+                startActivity(new Intent(this, HenCoder5Activity.class));
                 break;
 
         }

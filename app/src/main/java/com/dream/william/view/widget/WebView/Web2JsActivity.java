@@ -188,7 +188,7 @@ public class Web2JsActivity extends BaseActivity {
                                           // 就解析往下解析参数
                                           if (uri.getScheme().equals("js")) {
 
-                                              // 如果 authority  = 预先约定协议里的 webview，即代表都符合约定的协议
+                                              // 如果 authority  = 预先约定协议里的 prompt，即代表都符合约定的协议
                                               // 所以拦截url,下面JS开始调用Android需要的方法
                                               if (uri.getAuthority().equals("prompt")) {
 
