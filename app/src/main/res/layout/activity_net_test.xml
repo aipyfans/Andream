@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_net_action"
@@ -26,7 +25,7 @@
         android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb_bar"/>
+        app:layout_constraintTop_toBottomOf="@+id/tb_bar" />
 
     <TextView
         android:id="@+id/tv_net_result"
@@ -39,7 +38,17 @@
         android:text="快速迭代开发\nOkHttp + Retrofit + RxJava + RxAndroid + Gson \n请求结果展示于此\n因为使用的是豆瓣电影的接口\n其没有进行返回数据的格式统一,所以请求报错"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_net_action"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_net_action" />
+
+    <Button
+        android:id="@+id/btn_uri"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Uri"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_net_result" />
 
 
 </android.support.constraint.ConstraintLayout>

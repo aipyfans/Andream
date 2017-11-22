@@ -1,5 +1,6 @@
 package com.dream.william.net;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -17,6 +18,7 @@ public class NetTestActivity extends BaseActivity implements View.OnClickListene
 
     private Toolbar tbBar;
     private Button btnNetAction;
+    private Button btnUri;
     private TextView tvNetResult;
 
     @Override
@@ -28,7 +30,7 @@ public class NetTestActivity extends BaseActivity implements View.OnClickListene
 
 
     private void initView() {
-        tbBar = (Toolbar) findViewById(R.id.tb_bar);
+        tbBar = findViewById(R.id.tb_bar);
         tbBar.setTitle("Net Request");
         setSupportActionBar(tbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,10 +41,12 @@ public class NetTestActivity extends BaseActivity implements View.OnClickListene
             }
         });
 
-        btnNetAction = (Button) findViewById(R.id.btn_net_action);
-        tvNetResult = (TextView) findViewById(R.id.tv_net_result);
+        btnNetAction = findViewById(R.id.btn_net_action);
+        btnUri = findViewById(R.id.btn_uri);
+        tvNetResult = findViewById(R.id.tv_net_result);
 
         btnNetAction.setOnClickListener(this);
+        btnUri.setOnClickListener(this);
     }
 
     @Override
@@ -50,10 +54,10 @@ public class NetTestActivity extends BaseActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.btn_net_action:
 
-                NetService.getInstance().getServiceInterface().getTopMovie(0,1)
+                NetService.getInstance().getServiceInterface().getTopMovie(0, 1)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new SubscriberNet<Movies>(this,true) {
+                        .subscribe(new SubscriberNet<Movies>(this, true) {
 
                             @Override
                             protected void onGtedxNext(Movies movies) {
@@ -67,6 +71,9 @@ public class NetTestActivity extends BaseActivity implements View.OnClickListene
                             }
                         });
 
+                break;
+            case R.id.btn_uri:
+                startActivity(new Intent(this, UriActivity.class));
                 break;
         }
     }
