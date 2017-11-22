@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class UriActivity extends BaseActivity {
 
-    String url = "http://www.java2s.com:8080/your_pa_th/fileName.htm?name=william&age=32&sex=man#harvic";
+    String url = "http://www.java2s.com:8080/your_pa_th/fileName.htm?name=william&age=32&sex=man&sex=woman#harvic";
 
     private Toolbar tbBar;
     private TextView tvUri;
@@ -39,7 +39,7 @@ public class UriActivity extends BaseActivity {
 
     private void initView() {
         tbBar = findViewById(R.id.tb_bar);
-        tbBar.setTitle("Net Request");
+        tbBar.setTitle("Uri 详解");
         setSupportActionBar(tbBar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tbBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,48 +59,50 @@ public class UriActivity extends BaseActivity {
         Uri uri = Uri.parse(url);
 
         String scheme = uri.getScheme();
-        ssb.append("\n").append("scheme");
+        ssb.append("\n").append("Uri.getScheme()");
         ssb.append("\n").append(scheme);
-        setBgColor(ssb, "scheme",false);
+        setBgColor(ssb, "Uri.getScheme()",false);
 
         String schemeSpecificPart = uri.getSchemeSpecificPart();
-        ssb.append("\n").append("schemeSpecificPart");
+        ssb.append("\n").append("Uri.getSchemeSpecificPart()");
         ssb.append("\n").append(schemeSpecificPart);
-        setBgColor(ssb, "schemeSpecificPart",false);
+        setBgColor(ssb, "Uri.getSchemeSpecificPart()",false);
 
 
         String authority = uri.getAuthority();
-        ssb.append("\n").append("authority");
+        ssb.append("\n").append("Uri.getAuthority()");
         ssb.append("\n").append(authority);
-        setBgColor(ssb,  "authority",false);
+        setBgColor(ssb,  "Uri.getAuthority()",false);
 
         String host = uri.getHost();
-        ssb.append("\n").append("host");
+        ssb.append("\n").append("Uri.getHost()");
         ssb.append("\n").append(host);
-        setBgColor(ssb, "host",false);
+        setBgColor(ssb, "Uri.getHost()",false);
 
         String port = String.valueOf(uri.getPort());
-        ssb.append("\n").append("port");
+        ssb.append("\n").append("Uri.getPort()");
         ssb.append("\n").append(port);
-        setBgColor(ssb, "port",false);
+        setBgColor(ssb, "Uri.getPort()",false);
 
         String path = uri.getPath();
-        ssb.append("\n").append("path");
+        ssb.append("\n").append("Uri.getPath()");
         ssb.append("\n").append(path);
-        setBgColor(ssb, "path",true);
+        setBgColor(ssb, "Uri.getPath()",true);
 
         List<String> paths = uri.getPathSegments();
-        ssb.append("\n").append("paths");
+        ssb.append("\n").append("Uri.getPathSegments()");
         for (String pt : paths) {
             ssb.append("\n").append(pt);
         }
-        setBgColor(ssb, "paths",false);
+        setBgColor(ssb, "Uri.getPathSegments()",false);
 
 
         String query = uri.getQuery();
-        ssb.append("\n").append("query");
+        ssb.append("\n").append("Uri.getQuery()");
         ssb.append("\n").append(query);
-        setBgColor(ssb, "query",false);
+        setBgColor(ssb, "Uri.getQuery()",false);
+
+        // ***********************************************
 
         String name = uri.getQueryParameter("name");
         ssb.append("\n").append("name=").append(name);
@@ -114,10 +116,20 @@ public class UriActivity extends BaseActivity {
         ssb.append("\n").append("sex=").append(sex);
         setBgColor(ssb, "sex",true);
 
+        // ***********************************************
+
+        List<String> sexs = uri.getQueryParameters("sex");
+        ssb.append("\n").append("Uri.getQueryParameters");
+        for (String s : sexs) {
+            ssb.append("\n").append(s);
+        }
+        setBgColor(ssb, "Uri.getQueryParameters",false);
+
+        // ***********************************************
         String fragment = uri.getFragment();
-        ssb.append("\n").append("fragment");
+        ssb.append("\n").append("Uri.getFragment()");
         ssb.append("\n").append(fragment);
-        setBgColor(ssb, "fragment",false);
+        setBgColor(ssb, "Uri.getFragment()",false);
 
         String allUri = uri.toString();
         ssb.append("\n").append("Uri.toString()");
