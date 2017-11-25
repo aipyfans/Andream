@@ -22,9 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".view.notification.NotificationActivity"
-            android:screenOrientation="portrait" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
         <activity
             android:name=".view.layout.ConstraintLayoutActivity"
             android:screenOrientation="portrait" />
@@ -152,7 +160,12 @@
         <activity
             android:name=".view.custom.hencoder.HenCoder5Activity"
             android:screenOrientation="portrait" />
-        <activity android:name=".net.UriActivity"></activity>
+        <activity android:name=".net.UriActivity" />
+
+        <receiver
+            android:name=".view.notification.PushReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
     </application>
 
 </manifest>

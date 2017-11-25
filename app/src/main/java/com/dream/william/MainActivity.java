@@ -11,9 +11,6 @@ import com.dream.william.component.activity.intent.IntentFilterActivity;
 import com.dream.william.component.activity.lifecycle.ActivityOne;
 import com.dream.william.mechanism.MechanismActivity;
 import com.dream.william.net.NetTestActivity;
-import com.dream.william.photophase.PhaseActivity;
-import com.dream.william.photophase.PhaseEditActivity;
-import com.dream.william.photophase.PhaseShowActivity;
 import com.dream.william.view.MainViewActivity;
 import com.dream.william.view.notification.NotificationActivity;
 
@@ -74,7 +71,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, NotificationActivity.class));
                 break;
 
-            case R.id.btn_photo_phase:
+            /*case R.id.btn_photo_phase:
                 startActivity(new Intent(this, PhaseActivity.class));
                 break;
 
@@ -84,7 +81,7 @@ public class MainActivity extends BaseActivity {
 
             case R.id.btn_phase_show:
                 startActivity(new Intent(this, PhaseShowActivity.class));
-                break;
+                break;*/
 
             case R.id.btn_views:
                 startActivity(new Intent(this, MainViewActivity.class));
