@@ -43,17 +43,8 @@ import java.util.UUID;
  * Android通知及RemoteViews整理
  * https://jestar719.github.io/2017/02/27/Android%E9%80%9A%E7%9F%A5%E5%8F%8ARemoteView%E6%95%B4%E7%90%86/
  * <p>
- * Android 开发之 Notification 详解
- * http://glgjing.github.io/blog/2015/11/18/android-kai-fa-zhi-notification-xiang-jie/
- * <p>
  * Android通知栏介绍与适配总结
  * http://iluhcm.com/2017/03/12/experience-of-adapting-to-android-notifications/
- *
- * Android通知栏介绍与适配总结
- * http://iluhcm.com/2017/03/12/experience-of-adapting-to-android-notifications/#RemoteViews适配
- *
- *Android自定义Notification并没有那么简单
- * https://www.bbsmax.com/A/WpdKgAGMdV/
  *
  * Android 通知栏Notification的整合 全面学习 （一个DEMO让你完全了解它）
  * http://blog.csdn.net/vipzjyno1/article/details/25248021

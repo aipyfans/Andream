@@ -23,5 +23,4 @@ liteAppList->cd3
 cd3(yes)->show2pass
 cd3(no)->add2pass->show2pass(left)->e
 passLiteApp->e
-
 ```
