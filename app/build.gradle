@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "27.0.1"
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
 
     defaultConfig {
         applicationId "com.dream.william"
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,16 +30,17 @@ dependencies {
     compile project(':net')
     compile project(':view')
     //------------------------------------------------------------------------------------------
+    compile "com.android.support:appcompat-v7:$support_version"
+    testCompile "junit:junit:$junit_version"
+    compile "com.android.support:support-v4:$support_version"
+    compile "com.android.support:design:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:cardview-v7:$support_version"
+    compile "com.android.support:palette-v7:$support_version"
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:support-v4:26.+'
-    compile 'com.android.support:design:26.+'
-    compile 'com.android.support:recyclerview-v7:26.+'
-    compile 'com.android.support:cardview-v7:26.+'
     compile 'com.airbnb.android:lottie:1.5.3'
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.uphyca:stetho_realm:2.1.0'
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:palette-v7:26.+'
 
 }

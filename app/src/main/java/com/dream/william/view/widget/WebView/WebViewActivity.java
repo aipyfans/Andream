@@ -160,7 +160,7 @@ public class WebViewActivity extends BaseActivity {
 
     private void initData() {
         String url = getIntent().getStringExtra(URL);
-        wvPage.loadUrl(url);
+        wvPage.loadUrl("https://oa_h5.hylaa.net/login");
     }
 
 
