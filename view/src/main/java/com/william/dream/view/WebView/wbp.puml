@@ -1,0 +1,5 @@
+@startuml
+Start -> Loading: 进度条加载到15%,
+Loading --> End: 进度条加载到75%
+
+@enduml

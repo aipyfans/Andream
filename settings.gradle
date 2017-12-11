@@ -1,1 +1,1 @@
-include ':app', ':lib', ':net', ':architecture', ':view', ':kit', ':push'
+include ':app', ':lib', ':net', ':architecture', ':view', ':kit', ':push', ':java'
