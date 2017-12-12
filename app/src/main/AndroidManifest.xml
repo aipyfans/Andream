@@ -160,6 +160,9 @@
         <activity
             android:name=".view.custom.hencoder.HenCoder6Activity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.custom.hencoder.HenCoder7Activity"
+            android:screenOrientation="portrait" />
 
         <activity android:name=".net.UriActivity" />
 

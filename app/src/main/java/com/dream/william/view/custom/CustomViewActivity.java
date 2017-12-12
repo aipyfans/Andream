@@ -13,6 +13,7 @@ import com.dream.william.view.custom.hencoder.HenCoder3Activity;
 import com.dream.william.view.custom.hencoder.HenCoder4Activity;
 import com.dream.william.view.custom.hencoder.HenCoder5Activity;
 import com.dream.william.view.custom.hencoder.HenCoder6Activity;
+import com.dream.william.view.custom.hencoder.HenCoder7Activity;
 
 public class CustomViewActivity extends BaseActivity {
 
@@ -74,7 +75,7 @@ public class CustomViewActivity extends BaseActivity {
                 break;
 
             case R.id.btn_hc_07:
-
+                startActivity(new Intent(this, HenCoder7Activity.class));
                 break;
 
         }
