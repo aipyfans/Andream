@@ -1,10 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.objectbox'
 
 android {
+
     compileSdkVersion compile_sdk_version
     buildToolsVersion build_tools_version
+
     defaultConfig {
         applicationId "com.dream.william.lib"
+
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode 1
@@ -12,7 +16,13 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ 'objectbox.debug' : 'true' ]
+            }
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -34,7 +44,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.3.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.0'
 
-
     compile 'com.orhanobut:logger:2.1.1'
-//    compile 'com.jakewharton.timber:timber:4.6.0'
+
+
+    compile "io.objectbox:objectbox-android:$objectboxVersion"
+    annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
 }

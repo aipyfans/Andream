@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dream.william.lib.DB.ObjectBox.ObjectBoxActivity;
 import com.dream.william.lib.app.BaseActivity;
 import com.dream.william.lib.NET.Glide.GlideActivity;
 import com.dream.william.lib.NET.Gson.GsonActivity;
@@ -54,6 +55,10 @@ public class MainActivity extends BaseActivity {
 
             case R.id.btn_rx_java:
                 startActivity(new Intent(this, RxJavaActivity.class));
+                break;
+
+            case R.id.btn_object_box:
+                startActivity(new Intent(this, ObjectBoxActivity.class));
                 break;
 
             case R.id.btn_:

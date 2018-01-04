@@ -36,7 +36,7 @@ public class HenCoder6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hencoder);
 
-        pager = (ViewPager) findViewById(R.id.pager);
+        pager =  findViewById(R.id.pager);
         pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -56,7 +56,7 @@ public class HenCoder6Activity extends AppCompatActivity {
             }
         });
 
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        tabLayout =  findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(pager);
     }
 

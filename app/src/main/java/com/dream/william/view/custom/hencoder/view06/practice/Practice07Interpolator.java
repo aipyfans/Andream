@@ -78,10 +78,10 @@ public class Practice07Interpolator extends LinearLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        spinner = (Spinner) findViewById(R.id.interpolatorSpinner);
+        spinner = findViewById(R.id.interpolatorSpinner);
 
-        animateBt = (Button) findViewById(R.id.animateBt);
-        imageView = (ImageView) findViewById(R.id.imageView);
+        animateBt = findViewById(R.id.animateBt);
+        imageView = findViewById(R.id.imageView);
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

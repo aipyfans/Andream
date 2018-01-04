@@ -40,8 +40,8 @@ public class Sample06Duration extends LinearLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        durationSb = (SeekBar) findViewById(R.id.durationSb);
-        durationValueTv = (TextView) findViewById(R.id.durationValueTv);
+        durationSb = findViewById(R.id.durationSb);
+        durationValueTv = findViewById(R.id.durationValueTv);
         durationValueTv.setText(getContext().getString(R.string.ms_with_value, duration));
         durationSb.setMax(10);
         durationSb.setProgress(1);

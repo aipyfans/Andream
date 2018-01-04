@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="Glide"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_gson"
@@ -34,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="Gson"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_ok_http"
@@ -42,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="OkHttp"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_retrofit"
@@ -50,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="Retrofit"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_rx_android"
@@ -58,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="RxAndroid"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_rx_binding"
@@ -66,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="RxBinding"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_rx_java"
@@ -74,7 +73,15 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="RxJava"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_object_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="Database for ObjectBox"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_"
@@ -82,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
                 android:text="btn_"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false" />
 
         </LinearLayout>
 
