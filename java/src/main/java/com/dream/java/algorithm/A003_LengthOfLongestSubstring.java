@@ -6,11 +6,11 @@ package com.dream.java.algorithm;
  * Created by william on 2018-01-08.
  */
 
-public class A003_ {
+public class A003_LengthOfLongestSubstring {
 
 
     public static void main(String[] args) {
-        A003_ reverseInteger = new A003_();
+        A003_LengthOfLongestSubstring reverseInteger = new A003_LengthOfLongestSubstring();
         int lengthOfLongestSubstring = reverseInteger.lengthOfLongestSubstring("aba");
         System.out.println("lengthOfLongestSubstring = " + lengthOfLongestSubstring);
     }
