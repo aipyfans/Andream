@@ -41,4 +41,5 @@ ext {
     support_version = '26.1.0'
     junit_version = '4.12'
 
+    roomVersion = "1.0.0"
 }

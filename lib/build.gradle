@@ -17,10 +17,16 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ 'objectbox.debug' : 'true' ]
+            annotationProcessorOptions { // // used by Room, to test migrations
+                arguments = ['objectbox.debug': 'true', "room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+    }
+
+    // used by Room, to test migrations
+    sourceSets {
+        androidTest.assets.srcDirs +=
+                files("$projectDir/schemas".toString())
     }
 
     buildTypes {
@@ -46,7 +52,12 @@ dependencies {
 
     compile 'com.orhanobut:logger:2.1.1'
 
-
+    // DB-ObjectBox
     compile "io.objectbox:objectbox-android:$objectboxVersion"
     annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
+
+    // DB-Room
+    compile "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    androidTestCompile "android.arch.persistence.room:testing:$rootProject.roomVersion"
 }
