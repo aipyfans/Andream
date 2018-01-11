@@ -18,6 +18,8 @@ import io.objectbox.query.QueryBuilder;
 
 /**
  * https://github.com/objectbox/objectbox-java
+ * <p>
+ * http://blog.csdn.net/Vxiaocai/article/details/78616526
  */
 public class ObjectBoxActivity extends BaseActivity {
 
