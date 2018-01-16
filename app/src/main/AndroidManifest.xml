@@ -3,7 +3,11 @@
     package="com.dream.william">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 
     <application
         android:name=".app.App"
@@ -163,7 +167,6 @@
         <activity
             android:name=".view.custom.hencoder.HenCoder7Activity"
             android:screenOrientation="portrait" />
-
         <activity android:name=".net.UriActivity" />
 
         <receiver
@@ -171,7 +174,10 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".component.service.ServiceActivity"></activity>
+        <activity android:name=".component.service.ServiceActivity" />
+        <activity android:name=".component.content.ContentActivity" />
+        <activity android:name=".component.content.CpUserDictionaryActivity" />
+        <activity android:name=".component.content.CpCalendarActivity"></activity>
     </application>
 
 </manifest>

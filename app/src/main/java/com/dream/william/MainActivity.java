@@ -9,6 +9,7 @@ import com.dream.william.app.BaseActivity;
 import com.dream.william.component.activity.fragment.FragmentTestActivity;
 import com.dream.william.component.activity.intent.IntentFilterActivity;
 import com.dream.william.component.activity.lifecycle.ActivityOne;
+import com.dream.william.component.content.ContentActivity;
 import com.dream.william.mechanism.MechanismActivity;
 import com.dream.william.net.NetTestActivity;
 import com.dream.william.view.MainViewActivity;
@@ -64,7 +65,7 @@ public class MainActivity extends BaseActivity {
                 break;
 
             case R.id.btn_content_provider:
-
+                startActivity(new Intent(this, ContentActivity.class));
                 break;
 
             case R.id.btn_notification:
